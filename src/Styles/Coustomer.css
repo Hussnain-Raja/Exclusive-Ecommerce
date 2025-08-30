@@ -1,0 +1,40 @@
+.deliveryparent {
+  border-radius: 50%;
+  width: 67px;
+  height: 67px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  padding: 6px;
+  border: 7px solid rgb(193, 192, 192);
+}
+.deliveryparent img {
+  width: 100%;
+}
+.fastdelievery {
+  font-size: 17px;
+  font-weight: bold;
+  color: black;
+  letter-spacing: 1px;
+}
+.Allparent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+.fastpara {
+  font-size: 13px;
+  color: #000000;
+  text-align: center;
+}
+.topupbtn {
+  margin-top: 55px;
+  /* gg */
+ 
+ 
+  cursor: pointer;
+  z-index: 1000;
+}

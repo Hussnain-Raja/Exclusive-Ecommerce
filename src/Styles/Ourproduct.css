@@ -1,0 +1,37 @@
+.spacecard {
+  margin-top: 50px;
+}
+.borderpoints {
+  background-color: rgb(251, 91, 20);
+  border-radius: 50%;
+  width: 5px;
+  height: 5px;
+  border: 2px solid rgb(139 132 132);
+  padding: 7px;
+}
+.noborder {
+  background-color: rgb(223, 91, 91);
+  padding: 8px;
+  border: none;
+}
+.pointsparent {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  margin-top: 4px;
+}
+.colorchange {
+  background-color: #eeff61;
+}
+.greenlabel {
+  background-color: rgb(0, 255, 102);
+}
+.blackborder {
+  background-color: black;
+}
+.backcolorchange {
+  background-color: #184a48;
+}
+.exploreheadp{
+  margin-bottom: 50px;
+}

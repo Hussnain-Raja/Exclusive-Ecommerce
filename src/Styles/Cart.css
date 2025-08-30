@@ -1,0 +1,165 @@
+.cart .carddesc .cardh {
+  font-size: 17px;
+  color: rgb(129 121 121);
+  margin: 55px 0;
+}
+.cart .carddesc .blackcolorh {
+  color: black;
+}
+.parentswiper {
+  display: flex;
+  gap: 10px;
+}
+.parentswiper .swiper__thumb {
+  width: 20%;
+  cursor: pointer;
+}
+.parentswiper .main__swiper {
+  width: 80%;
+  cursor: pointer;
+}
+.swiper__thumb .swiper-slide {
+  height: 100% !important;
+}
+.cartright .instock {
+  color: rgb(130, 255, 180);
+  font-size: 15px;
+}
+.cartright .haedrightcart {
+  font-size: 21px;
+  color: black;
+  font-weight: 600;
+}
+.cartright .stockgap {
+  display: flex;
+  gap: 10px;
+}
+.middleparent .pricedoll {
+  font-size: 16px;
+  color: black;
+}
+.cartright .starsdiff {
+  margin: 8px 0;
+}
+.middleparent .rightcartpara {
+  font-size: 15px;
+  color: black;
+  margin: 10px 0;
+}
+.middleparent .parabottom {
+  border-bottom: 1px solid grey;
+}
+.colorballs .colorhead {
+  font-size: 19px;
+  color: black;
+}
+.colorballs {
+  display: flex;
+  gap: 16px;
+  margin: 11px 0;
+  align-items: center;
+}
+.pointsparent .dust {
+  background-color: rgb(160, 188, 224) !important;
+}
+.sizeparent {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+.sizeparent .sizeno {
+  width: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  border-radius: 6px;
+  padding: 5px;
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid #959090;
+  font-weight: 600;
+}
+.sizeparent .anotheractive {
+  background-color: rgb(229, 71, 71);
+  color: white;
+}
+
+.countsec .button-block {
+  display: flex;
+  gap: 30px;
+  background-color: #f9f9f9;
+  border: 1px solid grey;
+}
+
+.button-block button {
+  padding: 2px 16px;
+  font-size: 22px;
+  cursor: pointer;
+  border-radius: 2px;
+  border: 1px solid #d9d7d7;
+  background-color: transparent;
+  transition: background-color 0.3s;
+}
+
+.button-block button:hover {
+  background-color: rgb(229, 71, 71);
+  color: white;
+}
+
+.countsec .count-display {
+  margin-top: 10px;
+  font-size: 16px;
+  padding: 0 10px;
+  font-weight: bold;
+}
+.countsec {
+  display: flex;
+  margin: 15px 0;
+  align-items: center;
+  justify-content: space-between;
+}
+.buy-btn {
+  padding: 9px 75px;
+}
+.pokerheartb {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid grey;
+}
+.pokerheartb i {
+  font-size: 22px;
+}
+.lastsec {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid grey;
+  display: flex;
+
+  gap: 10px;
+}
+.rightlastblock .lasth {
+  font-size: 12px;
+  font-weight: 600;
+  color: black;
+  margin-bottom: 10px;
+}
+.lastpara {
+  font-size: 11px;
+  margin-bottom: 2px;
+  text-decoration: underline;
+}
+.cartright {
+  margin-left: 10px;
+}
+.detail {
+  text-decoration: underline;
+}
+.noline {
+  text-decoration: none;
+}

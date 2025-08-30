@@ -1,0 +1,150 @@
+.exclusivehead {
+  font-size: 17px;
+}
+.sectwolist {
+  display: flex;
+  gap: 30px;
+
+  align-items: center;
+}
+.iconsatlast a {
+  text-decoration: none;
+  color: black;
+}
+
+.herosec {
+  border-bottom: 1px solid rgb(217, 217, 217);
+  padding-top: 26px;
+  padding-bottom: 10px;
+}
+.heroexclusive {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+}
+.secondsechead {
+}
+
+.sectwolist li a {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  font-weight: 400;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+.sectwolist li a:hover {
+  color: rgb(52, 49, 49);
+  text-decoration: underline;
+}
+
+.summer {
+  margin: 0;
+}
+
+.input-wrapper {
+  position: relative;
+  width: 248px;
+}
+
+.input-wrapper input {
+  width: 97%;
+  padding: 14px 35px 10px 10px;
+  font-size: 13px;
+  border: none;
+  background-color: rgba(231, 230, 226, 0.41);
+  border-radius: 4px;
+  outline: none;
+}
+
+.search-icon {
+  position: absolute;
+  right: 19px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 23px;
+  color: #666;
+}
+
+.lasticonsec {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+  align-items: center;
+}
+.iconsatlast i {
+  font-size: 25px;
+  color: black;
+  transition: color 0.3s ease;
+}
+.iconsatlast i:hover {
+  color: #e8ecec;
+}
+.usercircle {
+  border-radius: 50%;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  background: rgb(219, 68, 68);
+}
+.usercircle i {
+  font-size: 17px;
+  color: white;
+}
+
+.iconsatlast {
+  display: flex;
+  gap: 20px;
+}
+/* hhh */
+.usercircle-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.user-dropdown {
+  display: none;
+  position: absolute;
+  top: 23px;
+  right: 7px;
+  background: rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(75px);
+
+  z-index: 1000;
+  border-radius: 6px;
+  padding: 7px;
+  width: 240px;
+}
+
+.user-dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.user-dropdown li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.user-dropdown li:hover {
+  background-color: #353333;
+}
+
+.user-dropdown i {
+  font-size: 18px;
+  color: rgb(250, 250, 250);
+  margin-right: 14px;
+}
+.user-dropdown li a {
+  color: rgb(250, 250, 250);
+  text-decoration: none;
+}
+.show-dropdown {
+  display: block;
+}

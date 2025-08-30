@@ -1,0 +1,106 @@
+.footer {
+  background-color: black;
+}
+.footheadlist {
+  font-size: 17px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.subsbtn {
+  background: transparent;
+  color: rgb(219, 219, 219);
+  border: none;
+  font-size: 14px;
+  margin: 10px 0;
+  padding: 0;
+}
+.firstsecget {
+  color: rgb(219, 219, 219);
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.input-with-icon {
+  position: relative;
+  width: 200px;
+}
+
+.input-with-icon input {
+  width: 100%;
+  padding: 14px 35px 10px 10px;
+  font-size: 13px;
+  border: 1px solid rgb(219, 219, 219);
+  border-radius: 3px;
+  background-color: black;
+  color: #fff;
+}
+
+.input-with-icon i {
+  position: absolute;
+  right: 8px;
+  top: 53%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: rgb(219, 219, 219);
+  cursor: pointer;
+}
+.secondlist li {
+  margin-bottom: 10px;
+}
+.secondlist li a {
+  text-decoration: none;
+
+  color: rgb(172, 172, 172);
+  font-size: 14px;
+}
+.socialiconspic {
+  display: flex;
+  gap: 49px;
+  margin-top: 16px;
+}
+.socialiconspic li a {
+  color: white;
+  font-size: 25px;
+  text-decoration: none;
+}
+.playstore {
+  display: flex;
+  padding: 4px 20px;
+  border-radius: 6px;
+
+  background: transparent;
+  color: white;
+  border: 1px solid;
+}
+.playstore i {
+  font-size: 20px;
+}
+.name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.scancode {
+  display: flex;
+  gap: 10px;
+}
+.geton {
+  font-size: 7px;
+  font-weight: bold;
+  text-align: left;
+}
+.store {
+  font-size: 13px;
+  font-weight: bold;
+}
+.parentbtns {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.dowmnloadapp {
+  font-size: 10px;
+  color: rgb(164, 164, 164);
+  margin: 12px 0;
+}

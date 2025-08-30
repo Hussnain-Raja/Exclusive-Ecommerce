@@ -1,0 +1,50 @@
+.exphead {
+  font-size: 19px;
+  color: rgb(0, 255, 102);
+  margin-bottom: 23px;
+}
+.expimage {
+  position: relative;
+  z-index: 9;
+}
+.exptext {
+  position: absolute;
+  top: 85px;
+  left: 64px;
+}
+.exppara {
+  font-size: 46px;
+  font-weight: bold;
+  color: white;
+  width: 57%;
+  line-height: 1.5;
+}
+.timemin {
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  text-align: center;
+  padding: 10px;
+  background: rgb(255, 255, 255);
+}
+.numberexp {
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0;
+}
+.hoursexp {
+  color: rgb(32, 32, 32);
+  font-size: 9px;
+  margin: 0;
+}
+.timecirclealign {
+  display: flex;
+  gap: 13px;
+  margin: 27px 0;
+}
+
+.greenbtn {
+  padding: 18px 43px;
+  background-color: rgb(0, 255, 102);
+}

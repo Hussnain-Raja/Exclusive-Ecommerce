@@ -1,0 +1,37 @@
+.speakerdown img {
+  width: 96%;
+}
+.lastpic img {
+  width: 96%;
+}
+.parentdownimg {
+  display: flex;
+  margin-top: 30px;
+  gap: 23px;
+}
+.playstationalign {
+  position: relative;
+  z-index: 9;
+}
+.playtext {
+  position: absolute;
+  bottom: 37px;
+  left: 24px;
+}
+.playhead {
+  font-size: 23px;
+  color: white;
+  font-weight: 600;
+}
+.playpara {
+  font-size: 12px;
+  color: rgb(255 247 247);
+  width: 60%;
+  margin: 4px 0;
+}
+.gucciw {
+  width: 100%;
+}
+.arrivalhead{
+  margin-bottom: 40px;
+}

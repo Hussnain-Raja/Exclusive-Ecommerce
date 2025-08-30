@@ -1,0 +1,70 @@
+.voucherleft li a {
+  text-decoration: none;
+  font-size: 17px;
+  color: black;
+  display: block;
+  margin-bottom: 20px;
+  padding-right: 10px;
+}
+.voucherleft li {
+  /* padding-right: 14px; */
+}
+.voucherleft i {
+  float: right;
+  color: black;
+  font-size: 18px;
+  font-weight: 500;
+}
+.voucherleft {
+  padding-top: 51px;
+}
+.voucherleftmargin {
+  border-right: 1px solid rgb(217, 217, 217);
+  height: 100%;
+}
+.voucherrightmargin {
+  padding-top: 51px;
+  padding-left: 51px;
+}
+.voucherparent {
+  display: flex;
+}
+.voucherimage {
+  position: relative;
+  z-index: 9;
+}
+.textonimage {
+  position: absolute;
+  top: 69px;
+  left: 72px;
+  z-index: 10;
+}
+.aligntextapple {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.appletext {
+  color: rgb(251 248 248);
+  font-size: 15px;
+  margin: 0;
+  font-weight: 400;
+}
+
+.offpara {
+  color: white;
+  font-size: 62px;
+  width: 57%;
+  font-weight: bold;
+  margin: 25px 0;
+}
+/* pagination designation */
+.mySwiper .swiper-pagination-bullet {
+  background-color: #ccc;
+  opacity: 1;
+}
+
+.mySwiper .swiper-pagination-bullet-active {
+  background-color: #ff0000;
+  border: 2px solid white;
+}

@@ -1,0 +1,10 @@
+.bestbutton {
+  text-align: end;
+     
+}
+
+.sellingheadparent{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}

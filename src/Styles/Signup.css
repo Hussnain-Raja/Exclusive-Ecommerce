@@ -1,0 +1,57 @@
+.signup {
+  background: linear-gradient(to right, rgb(203, 228, 233) 60%, white 40%);
+  margin-top: 50px;
+  margin-bottom: 93px;
+}
+/* .signup_picleft { */
+/* margin: 50px 0; */
+/* background: linear-gradient(to right, rgb(203, 228, 233) 60%, white 40%); */
+/* } */
+.phoneimage {
+  width: 93%;
+  transform: translateX(-27px);
+}
+.signuppara {
+  font-size: 13px;
+  color: black;
+  margin-bottom: 24px;
+}
+.signupparent {
+}
+.formrightparent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.email-input {
+  width: 100%;
+  padding: 5px 0;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  background: transparent;
+  outline: none;
+  font-size: 12px;
+  margin-bottom: 32px;
+}
+.buttonform {
+  display: flex;
+  flex-direction: column;
+}
+.login {
+  display: flex;
+  gap: 10px;
+
+  align-items: center;
+  margin-top: 30px;
+}
+.verification {
+  color: rgb(88, 88, 88);
+  margin: 0;
+  font-size: 13px;
+}
+.googlebtn {
+  margin-top: 10px;
+}
+.signupform {
+  margin-top: 76px;
+}
