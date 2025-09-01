@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../Styles/Flash.css";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -9,6 +9,46 @@ import flashpic3 from "../Assests/flashpic3.webp";
 import flashpic4 from "../Assests/flashpic4.webp";
 
 const Flash = () => {
+  const [timeLeft, setTimeLeft] = useState({
+    days: "00",
+    hours: "00",
+    minutes: "00",
+    seconds: "00",
+  });
+
+  // Set your sale end time here
+  const target = new Date("2025-09-05T00:00:00").getTime();
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const difference = target - now;
+
+      if (difference <= 0) {
+        clearInterval(interval);
+        setTimeLeft({ days: "00", hours: "00", minutes: "00", seconds: "00" });
+        return;
+      }
+
+      const days = String(
+        Math.floor(difference / (1000 * 60 * 60 * 24))
+      ).padStart(2, "0");
+      const hours = String(
+        Math.floor((difference / (1000 * 60 * 60)) % 24)
+      ).padStart(2, "0");
+      const minutes = String(
+        Math.floor((difference / 1000 / 60) % 60)
+      ).padStart(2, "0");
+      const seconds = String(Math.floor((difference / 1000) % 60)).padStart(
+        2,
+        "0"
+      );
+
+      setTimeLeft({ days, hours, minutes, seconds });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
   return (
     <section className="flash main-padding">
       <div className="container">
@@ -22,7 +62,7 @@ const Flash = () => {
 
           <div className="col-lg-12">
             <div className="flashsecondhead">
-              <div className="clockhead">
+              {/* <div className="clockhead">
                 <h2 className="flashhead main-paragraph">Flash Sales</h2>
 
                 <div className="parentdots">
@@ -35,9 +75,7 @@ const Flash = () => {
                       <div className="dotsspace"></div>
                       <div className="dotsspace"></div>
                     </div>
-                    {/* </div> */}
-
-                    {/* 2 */}
+                 
                     <div className="no-column">
                       <div className="placedays">
                         <div className="dayhead">Hours</div>
@@ -48,8 +86,7 @@ const Flash = () => {
                         <div className="dotsspace"></div>
                       </div>
                     </div>
-                    {/* 2 */}
-                    {/* 3 */}
+                   
                     <div className="no-column">
                       <div className="placedays">
                         <div className="dayhead">Minutes</div>
@@ -60,8 +97,7 @@ const Flash = () => {
                         <div className="dotsspace"></div>
                       </div>
                     </div>
-                    {/* 3 */}
-                    {/* 4 */}
+                
 
                     <div className="no-column">
                       <div className="placedays">
@@ -69,11 +105,31 @@ const Flash = () => {
                         <div className="dayno">56</div>
                       </div>
                     </div>
-                    {/* 4 */}
+                  
                   </div>
                 </div>
+              </div> */}
+              <div className="clockhead">
+                <h2 className="flashhead main-paragraph">Flash Sales</h2>
+                <div className="parentdots">
+                  {["Days", "Hours", "Minutes", "Seconds"].map((label, idx) => (
+                    <div key={label} className="no-column">
+                      <div className="placedays">
+                        <div className="dayhead">{label}</div>
+                        <div className="dayno">
+                          {Object.values(timeLeft)[idx]}
+                        </div>
+                      </div>
+                      {label !== "Seconds" && (
+                        <div className="day-column">
+                          <div className="dotsspace"></div>
+                          <div className="dotsspace"></div>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
               </div>
-
               <div className="circlealign">
                 <div className="circleiconbtn custom-next">
                   <i className="ri-arrow-left-line"></i>
