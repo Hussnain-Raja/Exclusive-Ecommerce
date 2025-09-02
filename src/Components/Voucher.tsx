@@ -6,7 +6,13 @@ import voucherright from "../Assests/voucherright.webp";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
-const Voucher = () => {
+
+type Props = {
+  posts: any[] | undefined;
+  loading: boolean;
+};
+
+const Voucher = (props: Props) => {
   return (
     <section className="voucher">
       <div className="container">
@@ -15,35 +21,16 @@ const Voucher = () => {
             <div className="col-lg-2">
               <div className="voucherleftmargin">
                 <ul className="voucherleft">
-                  <li>
-                    <a href="#">Woman’s Fashion<i className="ri-arrow-right-s-line"></i></a>
-                  
-                  </li>
-                  <li>
-                    <a href="#">Men’s Fashion <i className="ri-arrow-right-s-line"></i></a>
-                    {/* <i className="ri-arrow-right-s-line"></i> */}
-                  </li>
-                  <li>
-                    <a href="#">Electronics</a>
-                  </li>
-                  <li>
-                    <a href="#">Home & Lifestyle</a>
-                  </li>
-                  <li>
-                    <a href="#">Medicine</a>
-                  </li>
-                  <li>
-                    <a href="#">Sports & Outdoor</a>
-                  </li>
-                  <li>
-                    <a href="#">Baby’s & Toys</a>
-                  </li>
-                  <li>
-                    <a href="#">Groceries & Pets</a>
-                  </li>
-                  <li>
-                    <a href="#">Health & Beauty</a>
-                  </li>
+                  {props.loading && <p>Loading...</p>}
+                  {props.posts &&
+                    props.posts.map((item: any) => (
+                      <li key={item.id}>
+                        {/* <a href="#">{item.id}</a> */}
+                        <a href="#">{item.name}</a>
+                        {/* <a href="#">{item.slug}</a>
+                        <a href="#">{item.image}</a> */}
+                      </li>
+                    ))}
                 </ul>
               </div>
             </div>

@@ -8,7 +8,12 @@ import flashpic2 from "../Assests/flashpic2.webp";
 import flashpic3 from "../Assests/flashpic3.webp";
 import flashpic4 from "../Assests/flashpic4.webp";
 
-const Flash = () => {
+interface Props {
+  data: any[];
+  loading: boolean;
+}
+
+const Flash = (props: Props) => {
   const [timeLeft, setTimeLeft] = useState({
     days: "00",
     hours: "00",
@@ -153,132 +158,50 @@ const Flash = () => {
               className="mySwiper"
             >
               {/* 1st slide */}
-
-              <SwiperSlide>
-                <div className="allslidesparent">
-                  <div className="backflash">
-                    <img src={flashpic1} />
-                    <div className="redlabel">-40%</div>
-                    <div className="circleheart">
-                      <i className="ri-heart-line"></i>
+              {props.loading && <p>Loading...</p>}
+              {props.data.map((item) => (
+                <li key={item.id}>
+                  <SwiperSlide>
+                    <div className="allslidesparent">
+                      <div className="backflash">
+                        <img
+                          src={item.images?.[0] || item.img}
+                          alt={item.title || "Product"}
+                        />
+                        <div className="redlabel">
+                          {item.discountPercentage
+                            ? `-${item.discountPercentage}%`
+                            : "-40%"}
+                        </div>
+                        <div className="circleheart">
+                          <i className="ri-heart-line"></i>
+                        </div>
+                        <div className="circleheart eyeicon">
+                          <i className="ri-eye-line"></i>
+                        </div>
+                        <div className="add-to-cart-label">Add to Cart</div>
+                      </div>
+                      <div className="flashgame">
+                        <h2 className="flashheadgame">
+                          {item.title || item.name}
+                        </h2>
+                        <div className="dollargame">
+                          <p className="dollarh">${item.price}</p>
+                          <p className="price">
+                            ${item.oldPrice || item.price + 40}
+                          </p>
+                        </div>
+                        <div className="favstars">
+                          {[...Array(item.rating || 4)].map((_, i) => (
+                            <i key={i} className="ri-star-fill"></i>
+                          ))}
+                          <p className="ratestar">({item.reviews || 88})</p>
+                        </div>
+                      </div>
                     </div>
-                    <div className="circleheart eyeicon">
-                      <i className="ri-eye-line"></i>
-                    </div>
-                    {/* New Add to Cart label */}
-                    <div className="add-to-cart-label">Add to Cart</div>
-                  </div>
-                  <div className="flashgame">
-                    <h2 className="flashheadgame">HAVIT HV-G92 Gamepad</h2>
-                    <div className="dollargame">
-                      <p className="dollarh">$120</p>
-                      <p className="price">$160</p>
-                    </div>
-                    <div className="favstars">
-                      <i className="ri-star-fill"></i>
-                      <i className="ri-star-fill"></i>
-                      <i className="ri-star-fill"></i>
-                      <i className="ri-star-fill"></i>
-                      <p className="ratestar">(88)</p>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
-              {/* 1 */}
-              {/* 2 */}
-              <SwiperSlide>
-                <div className="allslidesparent">
-                  <div className="backflash">
-                    <img src={flashpic2} />
-                    <div className="redlabel">-35%</div>
-                    <div className="circleheart">
-                      <i className="ri-heart-line"></i>
-                    </div>
-                    <div className="circleheart eyeicon">
-                      <i className="ri-eye-line"></i>
-                    </div>
-                    <div className="add-to-cart-label">Add to Cart</div>
-                  </div>
-                  <div className="flashgame">
-                    <h2 className="flashheadgame">AK-900 Wired Keyboard</h2>
-                    <div className="dollargame">
-                      <p className="dollarh">$960</p>
-                      <p className="price">$160</p>
-                    </div>
-                    <div className="favstars">
-                      <i className="ri-star-fill"></i>
-                      <i className="ri-star-fill"></i>
-                      <i className="ri-star-fill"></i>
-                      <i className="ri-star-fill"></i>
-                      <p className="ratestar">(88)</p>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
-              {/* 2 */}
-              {/* 3 */}
-              <SwiperSlide>
-                <div className="allslidesparent">
-                  <div className="backflash">
-                    <img src={flashpic3} />
-                    <div className="redlabel">-25%</div>
-                    <div className="circleheart">
-                      <i className="ri-heart-line"></i>
-                    </div>
-                    <div className="circleheart eyeicon">
-                      <i className="ri-eye-line"></i>
-                    </div>
-                    <div className="add-to-cart-label">Add to Cart</div>
-                  </div>
-                  <div className="flashgame">
-                    <h2 className="flashheadgame">IPS LCD Gaming Monitor</h2>
-                    <div className="dollargame">
-                      <p className="dollarh">$120</p>
-                      <p className="price">$160</p>
-                    </div>
-                    <div className="favstars">
-                      <i className="ri-star-fill"></i>
-                      <i className="ri-star-fill"></i>
-                      <i className="ri-star-fill"></i>
-                      <i className="ri-star-fill"></i>
-                      <p className="ratestar">(88)</p>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
-
-              {/* 3 */}
-              {/* 4 */}
-              <SwiperSlide>
-                <div className="allslidesparent">
-                  <div className="backflash">
-                    <img src={flashpic4} />
-                    <div className="redlabel">-20%</div>
-                    <div className="circleheart">
-                      <i className="ri-heart-line"></i>
-                    </div>
-                    <div className="circleheart eyeicon">
-                      <i className="ri-eye-line"></i>
-                    </div>
-                    <div className="add-to-cart-label">Add to Cart</div>
-                  </div>
-                  <div className="flashgame">
-                    <h2 className="flashheadgame">S-Series Comfort Chair </h2>
-                    <div className="dollargame">
-                      <p className="dollarh">$120</p>
-                      <p className="price">$160</p>
-                    </div>
-                    <div className="favstars">
-                      <i className="ri-star-fill"></i>
-                      <i className="ri-star-fill"></i>
-                      <i className="ri-star-fill"></i>
-                      <i className="ri-star-fill"></i>
-                      <p className="ratestar">(88)</p>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
-              {/* 4 */}
+                  </SwiperSlide>
+                </li>
+              ))}
             </Swiper>
             <div className="col-lg-12">
               <div className="flashbutton">

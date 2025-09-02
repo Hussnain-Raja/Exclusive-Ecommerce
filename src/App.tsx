@@ -10,8 +10,28 @@ import Footer from "./Components/Footer";
 import { Signup } from "./Components/Signup";
 import Cart from "./Components/Cart";
 import Home from "./Components/Home";
+import { email, password } from "./utils/Config";
+import { generateTokenService } from "./services/GlobalServise";
 
 function App() {
+
+  const generateToken = async ()=>{
+    try {
+      let data ={
+        email,
+        password,
+      };
+      let response :any = await generateTokenService(data);
+      console.warn("this onne")
+      if (response.result) {
+        global.authToken = response.result;
+      }else{
+        // console.log(AppMessage.initializationFaild)
+      }
+    } catch (error) {
+      console.warn("Generate Token Error",error)
+    }
+  };
   return (
     <>
       <BrowserRouter>
