@@ -53,9 +53,6 @@ const Herosec = () => {
               <li>
                 <Link to="/about">About</Link>
               </li>
-              <li>
-                <Link to="/signup">Signup</Link>
-              </li>
             </ul>
           </div>
           <div className="col-lg-6">
@@ -67,7 +64,7 @@ const Herosec = () => {
 
               <div className="iconsatlast">
                 <i className="ri-heart-line"></i>
-                <Link to="/cart">
+                <Link to="/">
                   <i className="ri-shopping-cart-2-line"></i>
                 </Link>
               </div>

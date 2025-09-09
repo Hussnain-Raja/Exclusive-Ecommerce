@@ -1,7 +1,6 @@
 import React from "react";
 import signuppic from "../Assests/signuppic.webp";
 import code from "../Assests/code.webp";
-
 import "../Styles/Signup.css";
 import Hero from "./Hero";
 import { Link } from "react-router-dom";
@@ -11,42 +10,6 @@ import googlebtnsignup from "../Assests/googlebtnsignup.webp";
 export const Signup = () => {
   return (
     <>
-      {/* <section className="herosec">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-4">
-              <div className="secondsechead">
-                <h2 className="heroexclusive">Exclusive</h2>
-              </div>
-            </div>
-            <div className="col-lg-4">
-              <ul className="sectwolist">
-                <li>
-                  <Link to="/">Home</Link>
-                </li>
-                <li>
-                  <Link to="/contact">Contact</Link>
-                </li>
-                <li>
-                  <Link to="/about">About</Link>
-                </li>
-                <li>
-                  <Link to="/signup">Signup</Link>
-                </li>
-              </ul>
-            </div>
-            <div className="col-lg-4">
-              <div className="lasticonsec">
-                <div className="input-wrapper">
-                  <input placeholder="What are you looking for?"></input>
-                  <i className="ri-search-line search-icon"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
-      {/* down section */}
       <section className="signup">
         <div className="container">
           <div className="row">
@@ -67,19 +30,13 @@ export const Signup = () => {
                       type="email"
                       id="email"
                       className="email-input"
-                      placeholder="Name"
+                      placeholder="Enter your email"
                     />
                     <input
                       type="email"
                       id="email"
                       className="email-input"
-                      placeholder="Email or Phone Number"
-                    />
-                    <input
-                      type="email"
-                      id="email"
-                      className="email-input"
-                      placeholder="Password"
+                      placeholder="Enter Password"
                     />
                   </div>
                   <div className="buttonform">

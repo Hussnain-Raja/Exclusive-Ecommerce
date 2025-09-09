@@ -3,6 +3,7 @@ import Flash from "../Components/Flash";
 import { baseUrl } from "../services/NetworkService";
 import { ApiNames } from "../constants/ApiNames";
 
+
 const FlashScreen = () => {
   const [data, setData] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);

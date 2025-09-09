@@ -52,9 +52,13 @@
   padding: 5px;
   background: rgb(245, 245, 245);
   display: flex;
-
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease;
+}
+.circleiconbtn:hover {
+  cursor: pointer;
+  opacity: 0.5;
 }
 .circleiconbtn i {
   font-size: 23px;
@@ -71,6 +75,7 @@
   text-align: center;
   position: relative;
   border-radius: 5px;
+  cursor: pointer;
 }
 .backflash img {
   width: 93%;

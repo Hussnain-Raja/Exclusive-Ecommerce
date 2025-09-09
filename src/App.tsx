@@ -1,4 +1,4 @@
-import React from "react";
+import React, { use, useEffect } from "react";
 
 import { BrowserRouter, Route, Routes } from "react-router";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -12,8 +12,16 @@ import Cart from "./Components/Cart";
 import Home from "./Components/Home";
 import { email, password } from "./utils/Config";
 import { generateTokenService } from "./services/GlobalServise";
+import AddToCart from "./Components/AddToCart";
+import SignupScreen from "./screens/SignupScreen";
 
 function App() {
+useEffect(() => {
+  generateToken();
+
+}, [])
+
+
 
   const generateToken = async ()=>{
     try {
@@ -41,6 +49,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/addCart" element={<AddToCart />} />
+          <Route path="/sign" element={<SignupScreen />} />
         </Routes>
         
         <Footer />

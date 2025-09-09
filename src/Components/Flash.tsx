@@ -3,10 +3,11 @@ import "../Styles/Flash.css";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import flashpic1 from "../Assests/flashpic1.webp";
-import flashpic2 from "../Assests/flashpic2.webp";
-import flashpic3 from "../Assests/flashpic3.webp";
-import flashpic4 from "../Assests/flashpic4.webp";
+import { useNavigate } from "react-router";
+// import flashpic1 from "../Assests/flashpic1.webp";
+// import flashpic2 from "../Assests/flashpic2.webp";
+// import flashpic3 from "../Assests/flashpic3.webp";
+// import flashpic4 from "../Assests/flashpic4.webp";
 
 interface Props {
   data: any[];
@@ -14,46 +15,40 @@ interface Props {
 }
 
 const Flash = (props: Props) => {
-  const [timeLeft, setTimeLeft] = useState({
-    days: "00",
-    hours: "00",
-    minutes: "00",
-    seconds: "00",
-  });
+  const navigate = useNavigate();
 
-  // Set your sale end time here
-  const target = new Date("2025-09-05T00:00:00").getTime();
+  const handleClick = (item: any) => {
+    navigate("/cart", { state: { Iproducts: item } });//Q
+  };
+const [timeLeft, setTimeLeft] = useState({
+  days: "00",
+  hours: "00",
+  minutes: "00",
+  seconds: "00",
+});
+const target = new Date("2025-09-10T00:00:00").getTime();
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const now = new Date().getTime();
-      const difference = target - now;
+useEffect(() => {
+  const interval = setInterval(() => {
+    const now = new Date().getTime();
+    const difference = target - now;
 
-      if (difference <= 0) {
-        clearInterval(interval);
-        setTimeLeft({ days: "00", hours: "00", minutes: "00", seconds: "00" });
-        return;
-      }
+    if (difference <= 0) {
+      clearInterval(interval);
+      setTimeLeft({ days: "00", hours: "00", minutes: "00", seconds: "00" });
+      return;
+    }
 
-      const days = String(
-        Math.floor(difference / (1000 * 60 * 60 * 24))
-      ).padStart(2, "0");
-      const hours = String(
-        Math.floor((difference / (1000 * 60 * 60)) % 24)
-      ).padStart(2, "0");
-      const minutes = String(
-        Math.floor((difference / 1000 / 60) % 60)
-      ).padStart(2, "0");
-      const seconds = String(Math.floor((difference / 1000) % 60)).padStart(
-        2,
-        "0"
-      );
+    const days = String(Math.floor(difference / (1000 * 60 * 60 * 24))).padStart(2, "0");
+    const hours = String(Math.floor((difference / (1000 * 60 * 60)) % 24)).padStart(2, "0");
+    const minutes = String(Math.floor((difference / 1000 / 60) % 60)).padStart(2, "0");
+    const seconds = String(Math.floor((difference / 1000) % 60)).padStart(2, "0");
 
-      setTimeLeft({ days, hours, minutes, seconds });
-    }, 1000);
+    setTimeLeft({ days, hours, minutes, seconds });
+  }, 1000);
 
-    return () => clearInterval(interval);
-  }, []);
+  return () => clearInterval(interval);
+}, [target]);
   return (
     <section className="flash main-padding">
       <div className="container">
@@ -67,53 +62,6 @@ const Flash = (props: Props) => {
 
           <div className="col-lg-12">
             <div className="flashsecondhead">
-              {/* <div className="clockhead">
-                <h2 className="flashhead main-paragraph">Flash Sales</h2>
-
-                <div className="parentdots">
-                  <div className="no-column">
-                    <div className="placedays">
-                      <div className="dayhead">Days</div>
-                      <div className="dayno">03</div>
-                    </div>
-                    <div className="day-column">
-                      <div className="dotsspace"></div>
-                      <div className="dotsspace"></div>
-                    </div>
-                 
-                    <div className="no-column">
-                      <div className="placedays">
-                        <div className="dayhead">Hours</div>
-                        <div className="dayno">23</div>
-                      </div>
-                      <div className="day-column">
-                        <div className="dotsspace"></div>
-                        <div className="dotsspace"></div>
-                      </div>
-                    </div>
-                   
-                    <div className="no-column">
-                      <div className="placedays">
-                        <div className="dayhead">Minutes</div>
-                        <div className="dayno">19</div>
-                      </div>
-                      <div className="day-column">
-                        <div className="dotsspace"></div>
-                        <div className="dotsspace"></div>
-                      </div>
-                    </div>
-                
-
-                    <div className="no-column">
-                      <div className="placedays">
-                        <div className="dayhead">Seconds</div>
-                        <div className="dayno">56</div>
-                      </div>
-                    </div>
-                  
-                  </div>
-                </div>
-              </div> */}
               <div className="clockhead">
                 <h2 className="flashhead main-paragraph">Flash Sales</h2>
                 <div className="parentdots">
@@ -162,16 +110,11 @@ const Flash = (props: Props) => {
               {props.data.map((item) => (
                 <li key={item.id}>
                   <SwiperSlide>
-                    <div className="allslidesparent">
+                    <div className="allslidesparent" onClick={() => handleClick(item)}>
                       <div className="backflash">
-                        <img
-                          src={item.images?.[0] || item.img}
-                          alt={item.title || "Product"}
-                        />
+                        <img src={item.images} />
                         <div className="redlabel">
-                          {item.discountPercentage
-                            ? `-${item.discountPercentage}%`
-                            : "-40%"}
+                          {item.price ? `-20%` : "-40%"}
                         </div>
                         <div className="circleheart">
                           <i className="ri-heart-line"></i>
@@ -183,19 +126,20 @@ const Flash = (props: Props) => {
                       </div>
                       <div className="flashgame">
                         <h2 className="flashheadgame">
-                          {item.title || item.name}
+                         
+                          {item.title}
                         </h2>
                         <div className="dollargame">
                           <p className="dollarh">${item.price}</p>
                           <p className="price">
-                            ${item.oldPrice || item.price + 40}
+                            {/* ${item.oldPrice || item.price + 40} */}
                           </p>
                         </div>
                         <div className="favstars">
                           {[...Array(item.rating || 4)].map((_, i) => (
                             <i key={i} className="ri-star-fill"></i>
                           ))}
-                          <p className="ratestar">({item.reviews || 88})</p>
+                          <p className="ratestar">{item.slug}</p>
                         </div>
                       </div>
                     </div>

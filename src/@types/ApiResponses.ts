@@ -18,3 +18,14 @@ export interface Iproducts {
     creationAt:  Date;
     updatedAt:   Date;
 }
+
+export interface User {
+    id:         number;
+    email:      string;
+    password:   string;
+    name:       string;
+    role:       'admin' | 'customer' | 'seller'; // or import Role if defined elsewhere
+    avatar:     string;
+    creationAt: Date;
+    updatedAt:  Date;
+}

@@ -20,12 +20,27 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
 import { Navigation, Thumbs, FreeMode } from "swiper/modules";
+import { useLocation } from "react-router";
 
 const Cart = () => {
-  // tt
+  const location = useLocation();
+  const { Iproducts } = location.state || {};
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
   const [count, setCount] = useState(0);
+  const [activeDiv, setActiveDiv] = useState(null);
 
+
+    // Handle click for active
+    const onHandleClick = (e:any) =>{
+      setActiveDiv(e.currentTarget);
+    }
+
+  const handleColorChange = (e: React.MouseEvent<HTMLElement>) => {
+    e.currentTarget.classList.toggle("icon-active");
+  };
+  if (!Iproducts) {
+    return <p>No product selected.</p>;
+  }
   return (
     <>
       {/* section cart */}
@@ -36,7 +51,7 @@ const Cart = () => {
               <div className="carddesc">
                 <p className="cardh">
                   Account / Gaming /{" "}
-                  <span className="blackcolorh">Havic HV G-92 Gamepad</span>
+                  <span className="blackcolorh">{Iproducts.title}</span>
                 </p>
               </div>
             </div>
@@ -55,16 +70,16 @@ const Cart = () => {
                     direction="vertical"
                   >
                     <SwiperSlide>
-                      <img src={nail1} />
+                      <img src={Iproducts.images} />
                     </SwiperSlide>
                     <SwiperSlide>
-                      <img src={nailpic2} />
+                      <img src={Iproducts.images} />
                     </SwiperSlide>
                     <SwiperSlide>
-                      <img src={nailpic3} />
+                      <img src={Iproducts.images} />
                     </SwiperSlide>
                     <SwiperSlide>
-                      <img src={nailpic4} />
+                      <img src={Iproducts.images} />
                     </SwiperSlide>
                   </Swiper>
                 </div>
@@ -77,16 +92,19 @@ const Cart = () => {
                     className="mySwiper2"
                   >
                     <SwiperSlide>
-                      <img src={nail1} />
+                      <img src={Iproducts.images} />
                     </SwiperSlide>
                     <SwiperSlide>
-                      <img src={nailpic2} />
+                      <img src={Iproducts.images} />
                     </SwiperSlide>
                     <SwiperSlide>
-                      <img src={nailpic3} />
+                      <img src={Iproducts.images} />
                     </SwiperSlide>
                     <SwiperSlide>
-                      <img src={nailpic4} />
+                      <img src={Iproducts.images} />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <img src={Iproducts.images} />
                     </SwiperSlide>
                   </Swiper>
                 </div>
@@ -94,7 +112,7 @@ const Cart = () => {
             </div>
             <div className="col-lg-5">
               <div className="cartright">
-                <h2 className="haedrightcart">Havic HV G-92 Gamepad</h2>
+                <h2 className="haedrightcart">{Iproducts.title}</h2>
                 <div className="favstars starsdiff">
                   <i className="ri-star-fill"></i>
                   <i className="ri-star-fill"></i>
@@ -107,12 +125,8 @@ const Cart = () => {
                   </p>
                 </div>
                 <div className="middleparent">
-                  <p className="pricedoll">$192.00</p>
-                  <p className="rightcartpara">
-                    PlayStation 5 Controller Skin High quality vinyl with air
-                    channel adhesive for easy bubble free install & mess free
-                    removal Pressure sensitive.
-                  </p>
+                  <p className="pricedoll">{`$${Iproducts.price}`}</p>
+                  <p className="rightcartpara">{Iproducts.description}</p>
                   <div className="parabottom"></div>
                 </div>
 
@@ -125,13 +139,14 @@ const Cart = () => {
                   </div>
                 </div>
                 <div className="sizeparent">
-                  <p className="colorhead">Size:</p>
-                  <div className="sizeno">XS </div>
+                  <p className="colorhead">Size:</p> 
+
+                  <div className="sizeno" >XS </div>
                   <div className="sizeno">S </div>
-                  <div className="sizeno anotheractive">M </div>
+                  <div className="sizeno active">M </div>
                   <div className="sizeno">L </div>
                   <div className="sizeno">XL </div>
-                </div>
+                </div>  
                 <div className="countsec">
                   <div className="counter">
                     <div className="button-block">
@@ -144,10 +159,13 @@ const Cart = () => {
                     {/* <div className="cartbtn"></div> */}
                   </div>
                   <div className="parentcoentbtn">
-                    <button className="redbutton buy-btn">Buy Now </button>
+                    <button className="redbutton buy-btn">Add to Cart</button>
                   </div>
                   <div className="pokerheartb">
-                    <i className="ri-poker-hearts-line"></i>
+                    <i
+                      className="ri-poker-hearts-line"
+                      onClick={handleColorChange}
+                    ></i>
                   </div>
                 </div>
 
@@ -189,121 +207,121 @@ const Cart = () => {
             </div>
             <div className="col-lg-3">
               <div className="allslidesparent">
-              <div className="backflash">
-                <img src={flashpic1} />
-                <div className="redlabel">-40%</div>
-                <div className="circleheart">
-                  <i className="ri-heart-line"></i>
-                </div>
-                <div className="circleheart eyeicon">
-                  <i className="ri-eye-line"></i>
-                </div>
+                <div className="backflash">
+                  <img src={flashpic1} />
+                  <div className="redlabel">-40%</div>
+                  <div className="circleheart">
+                    <i className="ri-heart-line"></i>
+                  </div>
+                  <div className="circleheart eyeicon">
+                    <i className="ri-eye-line"></i>
+                  </div>
                   <div className="add-to-cart-label">Add to Cart</div>
-              </div>
-              <div className="flashgame">
-                <h2 className="flashheadgame">HAVIT HV-G92 Gamepad</h2>
-                <div className="dollargame">
-                  <p className="dollarh">$120</p>
-                  <p className="price">$160</p>
                 </div>
-                <div className="favstars">
-                  <i className="ri-star-fill"></i>
-                  <i className="ri-star-fill"></i>
-                  <i className="ri-star-fill"></i>
-                  <i className="ri-star-fill"></i>
-                  <p className="ratestar">(88)</p>
+                <div className="flashgame">
+                  <h2 className="flashheadgame">HAVIT HV-G92 Gamepad</h2>
+                  <div className="dollargame">
+                    <p className="dollarh">$120</p>
+                    <p className="price">$160</p>
+                  </div>
+                  <div className="favstars">
+                    <i className="ri-star-fill"></i>
+                    <i className="ri-star-fill"></i>
+                    <i className="ri-star-fill"></i>
+                    <i className="ri-star-fill"></i>
+                    <p className="ratestar">(88)</p>
+                  </div>
                 </div>
-              </div>
               </div>
             </div>
             {/* 2 */}
             <div className="col-lg-3">
               <div className="allslidesparent">
-              <div className="backflash">
-                <img src={flashpic2} />
-                <div className="redlabel">-40%</div>
-                <div className="circleheart">
-                  <i className="ri-heart-line"></i>
-                </div>
-                <div className="circleheart eyeicon">
-                  <i className="ri-eye-line"></i>
-                </div>
+                <div className="backflash">
+                  <img src={flashpic2} />
+                  <div className="redlabel">-40%</div>
+                  <div className="circleheart">
+                    <i className="ri-heart-line"></i>
+                  </div>
+                  <div className="circleheart eyeicon">
+                    <i className="ri-eye-line"></i>
+                  </div>
                   <div className="add-to-cart-label">Add to Cart</div>
-              </div>
-              <div className="flashgame">
-                <h2 className="flashheadgame">HAVIT HV-G92 Gamepad</h2>
-                <div className="dollargame">
-                  <p className="dollarh">$120</p>
-                  <p className="price">$160</p>
                 </div>
-                <div className="favstars">
-                  <i className="ri-star-fill"></i>
-                  <i className="ri-star-fill"></i>
-                  <i className="ri-star-fill"></i>
-                  <i className="ri-star-fill"></i>
-                  <p className="ratestar">(88)</p>
+                <div className="flashgame">
+                  <h2 className="flashheadgame">HAVIT HV-G92 Gamepad</h2>
+                  <div className="dollargame">
+                    <p className="dollarh">$120</p>
+                    <p className="price">$160</p>
+                  </div>
+                  <div className="favstars">
+                    <i className="ri-star-fill"></i>
+                    <i className="ri-star-fill"></i>
+                    <i className="ri-star-fill"></i>
+                    <i className="ri-star-fill"></i>
+                    <p className="ratestar">(88)</p>
+                  </div>
                 </div>
-              </div>
               </div>
             </div>
             {/* 3 */}
             <div className="col-lg-3">
               <div className="allslidesparent">
-              <div className="backflash">
-                <img src={flashpic3} />
-                <div className="redlabel">-40%</div>
-                <div className="circleheart">
-                  <i className="ri-heart-line"></i>
-                </div>
-                <div className="circleheart eyeicon">
-                  <i className="ri-eye-line"></i>
-                </div>
+                <div className="backflash">
+                  <img src={flashpic3} />
+                  <div className="redlabel">-40%</div>
+                  <div className="circleheart">
+                    <i className="ri-heart-line"></i>
+                  </div>
+                  <div className="circleheart eyeicon">
+                    <i className="ri-eye-line"></i>
+                  </div>
                   <div className="add-to-cart-label">Add to Cart</div>
-              </div>
-              <div className="flashgame">
-                <h2 className="flashheadgame">HAVIT HV-G92 Gamepad</h2>
-                <div className="dollargame">
-                  <p className="dollarh">$120</p>
-                  <p className="price">$160</p>
                 </div>
-                <div className="favstars">
-                  <i className="ri-star-fill"></i>
-                  <i className="ri-star-fill"></i>
-                  <i className="ri-star-fill"></i>
-                  <i className="ri-star-fill"></i>
-                  <p className="ratestar">(88)</p>
+                <div className="flashgame">
+                  <h2 className="flashheadgame">HAVIT HV-G92 Gamepad</h2>
+                  <div className="dollargame">
+                    <p className="dollarh">$120</p>
+                    <p className="price">$160</p>
+                  </div>
+                  <div className="favstars">
+                    <i className="ri-star-fill"></i>
+                    <i className="ri-star-fill"></i>
+                    <i className="ri-star-fill"></i>
+                    <i className="ri-star-fill"></i>
+                    <p className="ratestar">(88)</p>
+                  </div>
                 </div>
-              </div>
               </div>
             </div>
             {/* 4 */}
             <div className="col-lg-3">
               <div className="allslidesparent">
-              <div className="backflash">
-                <img src={flashpic4} />
-                <div className="redlabel">-40%</div>
-                <div className="circleheart">
-                  <i className="ri-heart-line"></i>
-                </div>
-                <div className="circleheart eyeicon">
-                  <i className="ri-eye-line"></i>
-                </div>
+                <div className="backflash">
+                  <img src={flashpic4} />
+                  <div className="redlabel">-40%</div>
+                  <div className="circleheart">
+                    <i className="ri-heart-line"></i>
+                  </div>
+                  <div className="circleheart eyeicon">
+                    <i className="ri-eye-line"></i>
+                  </div>
                   <div className="add-to-cart-label">Add to Cart</div>
-              </div>
-              <div className="flashgame">
-                <h2 className="flashheadgame">HAVIT HV-G92 Gamepad</h2>
-                <div className="dollargame">
-                  <p className="dollarh">$120</p>
-                  <p className="price">$160</p>
                 </div>
-                <div className="favstars">
-                  <i className="ri-star-fill"></i>
-                  <i className="ri-star-fill"></i>
-                  <i className="ri-star-fill"></i>
-                  <i className="ri-star-fill"></i>
-                  <p className="ratestar">(88)</p>
+                <div className="flashgame">
+                  <h2 className="flashheadgame">HAVIT HV-G92 Gamepad</h2>
+                  <div className="dollargame">
+                    <p className="dollarh">$120</p>
+                    <p className="price">$160</p>
+                  </div>
+                  <div className="favstars">
+                    <i className="ri-star-fill"></i>
+                    <i className="ri-star-fill"></i>
+                    <i className="ri-star-fill"></i>
+                    <i className="ri-star-fill"></i>
+                    <p className="ratestar">(88)</p>
+                  </div>
                 </div>
-              </div>
               </div>
             </div>
           </div>

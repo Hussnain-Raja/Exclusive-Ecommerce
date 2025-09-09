@@ -2,25 +2,23 @@ import React from "react";
 import VoucherScreen from "../screens/VoucherScreen";
 import FlashScreen from "../screens/FlashScreen";
 import Browse from "./Browse";
-import Bestselling from "./Bestselling";
 import Experience from "./Experience";
 import Ourproduct from "./Ourproduct";
 import Newarrival from "./Newarrival";
-import Coustomer from "./Coustomer";
-
-
+import BestSellingScreen from "../screens/BestSellingScreen";
+import CoustomerScreen from "../screens/CoustomerScreen";
 
 const Home = () => {
   return (
     <div>
       <VoucherScreen />
-      <FlashScreen/>
+      <FlashScreen />
       <Browse />
-      <Bestselling />
+      <BestSellingScreen />
       <Experience />
       <Ourproduct />
       <Newarrival />
-      <Coustomer />
+      <CoustomerScreen />
     </div>
   );
 };

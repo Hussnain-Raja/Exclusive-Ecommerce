@@ -1,5 +1,6 @@
 export const ApiNames = {
   categories: "categories",
   products: "products",
-  generateToken: "generateToken",
+  generateToken: "auth/login",
+  users: "users",
 };

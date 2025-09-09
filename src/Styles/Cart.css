@@ -80,9 +80,15 @@
   border: 1px solid #959090;
   font-weight: 600;
 }
-.sizeparent .anotheractive {
+.sizeparent .sizeno:active {
   background-color: rgb(229, 71, 71);
   color: white;
+}
+
+.sizeparent .sizeno:hover {
+  background-color: rgb(229, 71, 71);
+  color: white;
+  cursor: pointer;
 }
 
 .countsec .button-block {
@@ -162,4 +168,7 @@
 }
 .noline {
   text-decoration: none;
+}
+.icon-active::before {
+  background-color: red;
 }
