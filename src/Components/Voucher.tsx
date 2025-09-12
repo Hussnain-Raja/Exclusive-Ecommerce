@@ -25,16 +25,12 @@ const Voucher = (props: Props) => {
                   {props.posts &&
                     props.posts.map((item: any) => (
                       <li key={item.id}>
-                        {/* <a href="#">{item.id}</a> */}
                         <a href="#">{item.name}</a>
-                        {/* <a href="#">{item.slug}</a>
-                        <a href="#">{item.image}</a> */}
                       </li>
                     ))}
                 </ul>
               </div>
             </div>
-
             {/* right side */}
             <div className="col-lg-10">
               <div className="voucherrightmargin">
@@ -67,9 +63,6 @@ const Voucher = (props: Props) => {
                       </div>
                     </div>
                   </SwiperSlide>
-                  {/* 1st slide end */}
-
-                  {/* 2nd slide start */}
                   <SwiperSlide>
                     <div className="voucherimage">
                       <img src={voucherright} />
@@ -87,9 +80,6 @@ const Voucher = (props: Props) => {
                       </div>
                     </div>
                   </SwiperSlide>
-
-                  {/* 2nd slide end */}
-                  {/* 3rd slide */}
                   <SwiperSlide>
                     <div className="voucherimage">
                       <img src={voucherright} />

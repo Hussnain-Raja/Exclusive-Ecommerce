@@ -4,10 +4,26 @@ import code from "../Assests/code.webp";
 import "../Styles/Signup.css";
 import Hero from "./Hero";
 import { Link } from "react-router-dom";
-
 import googlebtnsignup from "../Assests/googlebtnsignup.webp";
-
-export const Signup = () => {
+import { FormikTouched } from "formik";
+interface Props {
+  values: {
+    email: string;
+    password: string;
+  };
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
+  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  error: {
+    email?: string;
+    password?: string;
+  };
+  touched: FormikTouched<{
+    email: string;
+    password: string;
+  }>
+}
+export const Signup = (props: Props) => {
   return (
     <>
       <section className="signup">
@@ -29,22 +45,36 @@ export const Signup = () => {
                     <input
                       type="email"
                       id="email"
+                      autoComplete="off"
                       className="email-input"
                       placeholder="Enter your email"
+                      name="email"
+                      value={props.values.email}
+                      onChange={props.handleChange}
+                      onBlur={props.handleBlur}
                     />
-                    <input
-                      type="email"
-                      id="email"
-                      className="email-input"
-                      placeholder="Enter Password"
-                    />
+                    {props.error.email && props.touched.email ? (<p className="form-error" style={{ color: "red", fontSize: 12, marginTop: 10 }}>{props.error.email}</p>) : null}
                   </div>
-                  <div className="buttonform">
-                    <button className="redbutton">Create Account </button>
+                  <div className="inputform">
+                    <input
+                      type="password"
+                      autoComplete="off"
+                      name="password"
+                      className="email-input"
+                      id="password"
+                      placeholder="Enter your password"
+                      value={props.values.password}
+                      onChange={props.handleChange}
+                      onBlur={props.handleBlur}
+                    />
+                    {props.error.password && props.touched.password ? (<p className="form-error" style={{ color: "red", fontSize: 12, marginTop: 10 }}>{props.error.password}</p>) : null}
+                  </div>
+                  <form className="buttonform" onSubmit={props.handleSubmit}>
+                    <button className="redbutton" type="submit">Login</button>
                     <div className="googlebtn">
                       <img src={googlebtnsignup} width={500} />
                     </div>
-                  </div>
+                  </form>
                   <div className="login">
                     <h2 className="verification main-heading">
                       Already have account?

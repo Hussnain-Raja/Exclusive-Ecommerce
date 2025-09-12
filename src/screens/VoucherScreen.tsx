@@ -9,6 +9,7 @@ const VoucherScreen = () => {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
+        
         const getVoucherList = async () => {
             try {
                 setLoading(true);

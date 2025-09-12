@@ -3,10 +3,6 @@
   margin-top: 50px;
   margin-bottom: 93px;
 }
-/* .signup_picleft { */
-/* margin: 50px 0; */
-/* background: linear-gradient(to right, rgb(203, 228, 233) 60%, white 40%); */
-/* } */
 .phoneimage {
   width: 93%;
   transform: translateX(-27px);
@@ -16,12 +12,13 @@
   color: black;
   margin-bottom: 24px;
 }
-.signupparent {
-}
 .formrightparent {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+.inputform {
+  margin-bottom: 25px;
 }
 .email-input {
   width: 100%;
@@ -31,7 +28,6 @@
   background: transparent;
   outline: none;
   font-size: 12px;
-  margin-bottom: 32px;
 }
 .buttonform {
   display: flex;
@@ -40,7 +36,6 @@
 .login {
   display: flex;
   gap: 10px;
-
   align-items: center;
   margin-top: 30px;
 }
