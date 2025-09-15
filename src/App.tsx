@@ -15,6 +15,7 @@ import AddToCart from "./Components/AddToCart";
 import SignupScreen from "./screens/SignupScreen";
 import PracticeTask from "./Components/PracticeTask";
 import About from "./Components/About";
+import Model from "./Components/Model";
 
 function App() {
   useEffect(() => {
@@ -54,6 +55,7 @@ function App() {
           <Route path="/sign" element={<SignupScreen />} />
           <Route path="/task" element={<PracticeTask />} />
           <Route path="/About" element={<About />} />
+          <Route path="/logout" element={<Model />} />
         </Routes>
 
         <Footer />

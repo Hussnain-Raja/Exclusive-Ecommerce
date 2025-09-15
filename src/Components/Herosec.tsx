@@ -98,9 +98,9 @@ const Herosec = () => {
                       </a>
                     </li>
                     <li>
-                      <a href="/logout">
+                      <Link to="/logout">
                         <i className="ri-logout-box-line"></i> Logout
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
