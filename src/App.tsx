@@ -17,6 +17,7 @@ import PracticeTask from "./Components/PracticeTask";
 import About from "./Components/About";
 import Model from "./Components/Model";
 
+
 function App() {
   useEffect(() => {
     generateToken();
