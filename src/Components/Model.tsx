@@ -37,6 +37,7 @@ const LogoutModal: React.FC = () => {
           <Button variant="danger" onClick={handleLogout}>
             Logout
           </Button>
+          
         </Modal.Footer>
       </Modal>
     </>
