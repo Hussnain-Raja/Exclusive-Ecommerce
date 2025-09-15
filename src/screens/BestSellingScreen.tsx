@@ -14,9 +14,11 @@ const BestSellingScreen = () => {
 
   const getSellingRequest = async () => {
     try {
+
       let response = await getProductService();
       if (response) {
         setDatas(response);
+
       }
     } catch (error) {
       console.log("There is an error", error);

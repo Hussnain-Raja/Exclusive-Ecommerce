@@ -3,7 +3,7 @@ import "../Styles/About.css";
 import delivery1 from "../Assests/delievery1.webp";
 import delivery2 from "../Assests/delivery2.webp";
 import delivery3 from "../Assests/delivery3.webp";
-import best4 from "../Assests/best4.webp";
+import aboutImg from "../Assests/About-Asset.webp";
 
 const About = () => {
 
@@ -31,20 +31,26 @@ const About = () => {
         <>
             {/* <!-- Mission Section --> */}
             <section className="mission container">
-                <div className="mission-text">
-                    <h3>Our Mission</h3>
-                    <p>Lorem,  ipsum dolor sit amet consectetur Lorem ipsum, dolor sit amet consectetur
-                        adipisicing elit. Optio, nam! Vero nesciunt, mollitia minima veritatis sequisap
-                        iente exercitationem dignissimos amet officiis ducimus aperiam ipsa rem vitae,o
-                        s nobis reprehenderit illo. Lorem ipsum dolor, sit amet consectetur adipisicing
-                        elit. Minima qui distinctio dicta officia blanditiis vero aliquid ea ullam! Vo
-                        luptate atque eligendi modi dignissimos laudantium praesentium corporis corrup
-                        ti cum cumque molestias? adipisicing elit. Alias aliquam dolorem amet iste rep
-                        ellendus nihil expedita ipsam, iure minima saepe harum molestiae odio nemo rep
-                        ellat mollitia, sapiente sint ducimus qui.</p>
-                </div>
-                <div className="mission-img">
-                    <img src={best4} alt="Mission" />
+                <div className="row">
+                    {/* Text Column (8) */}
+                    <div className="col-8 mission-text">
+                        <h3>Our Mission</h3>
+                        <p>
+                            At Exclusive, we believe shopping should be simple, secure, and
+                            enjoyable. Our mission is to bring you the latest in electronics,
+                            fashion, and lifestyle products at unbeatable prices, all from the
+                            comfort of your home. With a wide selection of trusted brands, fast
+                            delivery, and dedicated customer support, we aim to create a shopping
+                            experience that combines convenience with quality. Whether you’re
+                            upgrading your tech, refreshing your wardrobe, or finding the perfect
+                            gift, Exclusive is here to make every purchase easy and reliable.
+                        </p>
+                    </div>
+
+                    {/* Image Column (4) */}
+                    <div className="col-4 mission-img">
+                        <img src={aboutImg} alt="Mission" />
+                    </div>
                 </div>
             </section>
 
@@ -101,4 +107,4 @@ const About = () => {
     )
 }
 
-export default About
+export default About;
