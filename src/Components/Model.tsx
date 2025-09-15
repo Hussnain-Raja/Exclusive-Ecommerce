@@ -13,6 +13,7 @@ const LogoutModal: React.FC = () => {
 
     // Redirect to login page
     navigate("/login");
+    
   };
 
   return (
@@ -37,7 +38,7 @@ const LogoutModal: React.FC = () => {
           <Button variant="danger" onClick={handleLogout}>
             Logout
           </Button>
-          
+
         </Modal.Footer>
       </Modal>
     </>
