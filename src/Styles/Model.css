@@ -1,0 +1,19 @@
+.closeicon i {
+  float: right;
+  color: red;
+  font-size: 45px;
+}
+.logout-txt {
+  text-align: center;
+  font-size: 20px;
+  margin: 8px 0;
+}
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.btn-danger {
+       padding: 6px 39px;
+}

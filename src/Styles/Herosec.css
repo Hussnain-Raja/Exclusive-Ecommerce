@@ -127,6 +127,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  width: 100%;
   font-size: 13px;
   padding: 8px 12px;
   cursor: pointer;
@@ -144,6 +145,7 @@
 .user-dropdown li a {
   color: rgb(250, 250, 250);
   text-decoration: none;
+  width: 100%;
 }
 .show-dropdown {
   display: block;
