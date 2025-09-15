@@ -14,8 +14,6 @@ const SignupScreen = () => {
       console.log(values)
     },
   });
-  console.log("There is an error", errors)
-  // Removed erroneous reference to Formik
   return (
     <>
       <Signup values={values} handleChange={handleChange}

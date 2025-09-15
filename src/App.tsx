@@ -14,6 +14,7 @@ import { generateTokenService } from "./services/GlobalServise";
 import AddToCart from "./Components/AddToCart";
 import SignupScreen from "./screens/SignupScreen";
 import PracticeTask from "./Components/PracticeTask";
+import About from "./Components/About";
 
 function App() {
   useEffect(() => {
@@ -52,6 +53,7 @@ function App() {
           <Route path="/addCart" element={<AddToCart />} />
           <Route path="/sign" element={<SignupScreen />} />
           <Route path="/task" element={<PracticeTask />} />
+          <Route path="/About" element={<About />} />
         </Routes>
 
         <Footer />

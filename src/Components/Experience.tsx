@@ -29,7 +29,6 @@ const Experience = () => {
                 <h2 className="hoursexp">Seconds</h2>
               </div>
             </div>
-
             <div className="seagreenbtn">
               <button className="redbutton greenbtn">Buy Now!</button>
             </div>

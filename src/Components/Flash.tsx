@@ -4,10 +4,6 @@ import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { useNavigate } from "react-router";
-// import flashpic1 from "../Assests/flashpic1.webp";
-// import flashpic2 from "../Assests/flashpic2.webp";
-// import flashpic3 from "../Assests/flashpic3.webp";
-// import flashpic4 from "../Assests/flashpic4.webp";
 
 interface Props {
   data: any[];
@@ -20,35 +16,35 @@ const Flash = (props: Props) => {
   const handleClick = (item: any) => {
     navigate("/cart", { state: { Iproducts: item } });//Q
   };
-const [timeLeft, setTimeLeft] = useState({
-  days: "00",
-  hours: "00",
-  minutes: "00",
-  seconds: "00",
-});
-const target = new Date("2025-09-10T00:00:00").getTime();
+  const [timeLeft, setTimeLeft] = useState({
+    days: "00",
+    hours: "00",
+    minutes: "00",
+    seconds: "00",
+  });
+  const target = new Date("2025-09-10T00:00:00").getTime();
 
-useEffect(() => {
-  const interval = setInterval(() => {
-    const now = new Date().getTime();
-    const difference = target - now;
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const difference = target - now;
 
-    if (difference <= 0) {
-      clearInterval(interval);
-      setTimeLeft({ days: "00", hours: "00", minutes: "00", seconds: "00" });
-      return;
-    }
+      if (difference <= 0) {
+        clearInterval(interval);
+        setTimeLeft({ days: "00", hours: "00", minutes: "00", seconds: "00" });
+        return;
+      }
 
-    const days = String(Math.floor(difference / (1000 * 60 * 60 * 24))).padStart(2, "0");
-    const hours = String(Math.floor((difference / (1000 * 60 * 60)) % 24)).padStart(2, "0");
-    const minutes = String(Math.floor((difference / 1000 / 60) % 60)).padStart(2, "0");
-    const seconds = String(Math.floor((difference / 1000) % 60)).padStart(2, "0");
+      const days = String(Math.floor(difference / (1000 * 60 * 60 * 24))).padStart(2, "0");
+      const hours = String(Math.floor((difference / (1000 * 60 * 60)) % 24)).padStart(2, "0");
+      const minutes = String(Math.floor((difference / 1000 / 60) % 60)).padStart(2, "0");
+      const seconds = String(Math.floor((difference / 1000) % 60)).padStart(2, "0");
 
-    setTimeLeft({ days, hours, minutes, seconds });
-  }, 1000);
+      setTimeLeft({ days, hours, minutes, seconds });
+    }, 1000);
 
-  return () => clearInterval(interval);
-}, [target]);
+    return () => clearInterval(interval);
+  }, [target]);
   return (
     <section className="flash main-padding">
       <div className="container">
@@ -126,7 +122,7 @@ useEffect(() => {
                       </div>
                       <div className="flashgame">
                         <h2 className="flashheadgame">
-                         
+
                           {item.title}
                         </h2>
                         <div className="dollargame">

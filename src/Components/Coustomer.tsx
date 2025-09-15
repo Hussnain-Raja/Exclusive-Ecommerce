@@ -1,11 +1,8 @@
 import React from "react";
 import "../Styles/Coustomer.css";
-import delievery1 from "../Assests/delievery1.webp";
-import delivery2 from "../Assests/delivery2.webp";
-import delivery3 from "../Assests/delivery3.webp";
 
 interface Props {
-  user: [];
+  user: any[];
   isLoading: boolean;
 }
 const Coustomer = (props: Props) => {
