@@ -1,5 +1,4 @@
-import React, { use, useEffect } from "react";
-
+import React, { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Styles/Commonstyles.css";
