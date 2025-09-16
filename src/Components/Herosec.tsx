@@ -68,7 +68,7 @@ const Herosec = (porps:Props) => {
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/contact">Contact</Link>
+                <Link to="/contactpage">Contact</Link>
               </li>
               <li>
                 <Link to="/About">About</Link>
