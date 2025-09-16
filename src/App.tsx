@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route, useLocation, useNavigate, Navigate } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  useLocation,
+  useNavigate,
+  Navigate,
+} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Styles/Commonstyles.css";
 import "remixicon/fonts/remixicon.css";
@@ -15,16 +22,15 @@ import SignupScreen from "./screens/SignupScreen";
 import PracticeTask from "./Components/PracticeTask";
 import About from "./Components/About";
 import Model from "./Components/Model";
+import Contactpage from "./Components/Contactpage";
 // Layout-aware App
 function AppContent() {
   const location = useLocation();
   const navigate = useNavigate();
-const [isLogin, setIslogin] = useState<boolean>(() => {
-  // read from localStorage when app loads
-  return localStorage.getItem("login") === "true";
-});
-
-
+  const [isLogin, setIslogin] = useState<boolean>(() => {
+    // read from localStorage when app loads
+    return localStorage.getItem("login") === "true";
+  });
 
   useEffect(() => {
     generateToken();
@@ -33,7 +39,6 @@ const [isLogin, setIslogin] = useState<boolean>(() => {
     // if (loginState === "true") {
     //   setIslogin(true);
     // }
-
   }, []);
   const generateToken = async () => {
     try {
@@ -68,13 +73,20 @@ const [isLogin, setIslogin] = useState<boolean>(() => {
         {/* Signup route */}
         <Route
           path="/sign"
-          element={isLogin ? <Navigate to="/" /> : <SignupScreen setIslogin={setIslogin} />}
+          element={
+            isLogin ? (
+              <Navigate to="/" />
+            ) : (
+              <SignupScreen setIslogin={setIslogin} />
+            )
+          }
         />
         <Route path="/cart" element={<Cart />} />
         <Route path="/addCart" element={<AddToCart />} />
         <Route path="/task" element={<PracticeTask />} />
         <Route path="/about" element={<About />} />
         <Route path="/logout" element={<Model />} />
+        <Route path="/contactpage" element={<Contactpage />} />
       </Routes>
       {!hideLayout && <Footer />}
     </>
