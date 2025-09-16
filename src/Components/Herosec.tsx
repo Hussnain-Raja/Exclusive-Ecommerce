@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import "../Styles/Herosec.css";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
@@ -7,21 +7,24 @@ import "../Styles/Model.css";
 // avatar
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-const Herosec = () => {
+
+interface Props {
+  setIslogin: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Herosec = (porps:Props) => {
   // hhhg
-    const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false);
   const navigate = useNavigate();
 
-const handleLogout = () => {
-  // Clear auth data if needed
-  localStorage.removeItem("authToken");
+  const handleLogout = () => {
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("isLogin");
+    setShow(false);
+    porps.setIslogin(false);
+    navigate("/sign");
+  };
 
-  // Just close modal
-  setShow(false);
-};
-
-  // hhhhh
-  // ccc
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const dropdown = document.getElementById("user-dropdown");
@@ -115,35 +118,35 @@ const handleLogout = () => {
                       </a>
                     </li>
                     <li>
-                       {/* Trigger link */}
-      <a
-        href="#"
-        onClick={(e) => {
-          e.preventDefault(); // prevent page reload
-          setShow(true);
-        }}
-      >
-        <i className="ri-logout-box-line"></i> Logout
-      </a>
+                      {/* Trigger link */}
+                      <a
+                        href="#"
+                        onClick={(e) => {
+                          e.preventDefault(); 
+                          setShow(true);
+                        }}
+                      >
+                        <i className="ri-logout-box-line"></i> Logout
+                      </a>
 
-      {/* Logout Confirmation Modal */}
-      <Modal show={show}  onHide={() => setShow(false)}   backdrop="static"   // prevent closing on overlay click
-  keyboard={false}    // prevent closing with ESC
-  centered>
-        <Modal.Body>
-          <div className="closeicon" onClick={() => setShow(false)}>
-            <i className="ri-close-circle-line"></i>
-          </div>
-          <div className="logout-txt">
-            Are you sure you want to log out of your account?
-          </div>
-          <div className="logout-btn">
-            <Button variant="danger" onClick={handleLogout}>
-              Logout
-            </Button>
-          </div>
-        </Modal.Body>
-      </Modal>
+                      {/* Logout Confirmation Modal */}
+                      <Modal show={show} onHide={() => setShow(false)} backdrop="static" 
+                        keyboard={false} 
+                        centered>
+                        <Modal.Body>
+                          <div className="closeicon" onClick={() => setShow(false)}>
+                            <i className="ri-close-circle-line"></i>
+                          </div>
+                          <div className="logout-txt">
+                            Are you sure you want to log out of your account?
+                          </div>
+                          <div className="logout-btn">
+                            <Button variant="danger" onClick={handleLogout}>
+                              Logout
+                            </Button>
+                          </div>
+                        </Modal.Body>
+                      </Modal>
                     </li>
                   </ul>
                 </div>

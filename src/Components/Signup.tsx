@@ -89,7 +89,6 @@ export const Signup = (props: Props) => {
           </div>
         </div>
       </section>
-      {/* signup picture */}
     </>
   );
 };

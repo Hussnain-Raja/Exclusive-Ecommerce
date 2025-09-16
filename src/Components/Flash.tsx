@@ -14,15 +14,17 @@ const Flash = (props: Props) => {
   const navigate = useNavigate();
 
   const handleClick = (item: any) => {
-    navigate("/cart", { state: { Iproducts: item } });//Q
+    navigate("/cart", { state: { Iproducts: item } });
   };
+
   const [timeLeft, setTimeLeft] = useState({
     days: "00",
     hours: "00",
     minutes: "00",
     seconds: "00",
   });
-  const target = new Date("2025-09-10T00:00:00").getTime();
+  // keep target constant (outside useEffect and NOT in dependency array)
+  const target = new Date("2025-09-20T00:00:00").getTime();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -31,7 +33,12 @@ const Flash = (props: Props) => {
 
       if (difference <= 0) {
         clearInterval(interval);
-        setTimeLeft({ days: "00", hours: "00", minutes: "00", seconds: "00" });
+        setTimeLeft({
+          days: "00",
+          hours: "00",
+          minutes: "00",
+          seconds: "00",
+        });
         return;
       }
 
@@ -44,7 +51,7 @@ const Flash = (props: Props) => {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [target]);
+  }, []); // 🔑 empty array so effect runs only once
   return (
     <section className="flash main-padding">
       <div className="container">

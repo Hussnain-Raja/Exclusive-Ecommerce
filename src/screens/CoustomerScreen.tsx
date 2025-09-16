@@ -8,22 +8,8 @@ const CoustomerScreen = () => {
   const [user, setUser] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
-    // const fetchRes = async () => {
-    //   try {
-    //     setIsLoading(true);
-    //     const response = await fetch(`${baseUrl}${ApiNames.users}`);
-    //     const result = await response.json();
-    //     setUser(result);
-    //   } catch (error) {
-    //     console.log("Error fetching customers:", error);
-    //   } finally {
-    //     setIsLoading(false);
-    //   }
-    // };
-    // fetchRes();
     getUserData();
   }, []);
-
   const getUserData = async () => {
     try {
       let response = await getUserService();
@@ -34,7 +20,6 @@ const CoustomerScreen = () => {
       console.log("There is an error", error);
     }
   }
-
   return (
     <>
       <Coustomer user={user} isLoading={isLoading} />

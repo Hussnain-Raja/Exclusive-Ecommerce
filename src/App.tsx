@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { BrowserRouter, Route, Routes } from "react-router";
+import React, { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route, useLocation, useNavigate, Navigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Styles/Commonstyles.css";
 import "remixicon/fonts/remixicon.css";
@@ -15,53 +15,76 @@ import SignupScreen from "./screens/SignupScreen";
 import PracticeTask from "./Components/PracticeTask";
 import About from "./Components/About";
 import Model from "./Components/Model";
+// Layout-aware App
+function AppContent() {
+  const location = useLocation();
+  const navigate = useNavigate();
+const [isLogin, setIslogin] = useState<boolean>(() => {
+  // read from localStorage when app loads
+  return localStorage.getItem("login") === "true";
+});
 
 
-function App() {
+
   useEffect(() => {
     generateToken();
+    const loginState = localStorage.getItem("isLogin");
+    // console.log("Login State:: ", loginState);
+    // if (loginState === "true") {
+    //   setIslogin(true);
+    // }
 
-  }, [])
-
-
-
+  }, []);
   const generateToken = async () => {
     try {
-      let data = {
-        email,
-        password,
-      };
+      let data = { email, password };
       let response: any = await generateTokenService(data);
-      console.warn("this onne")
+      console.warn("this one");
       if (response.result) {
         global.authToken = response.result;
       } else {
-        // console.log(AppMessage.initializationFaild)
+        // handle initialization fail
       }
     } catch (error) {
-      console.warn("Generate Token Error", error)
+      console.warn("Generate Token Error", error);
     }
   };
+  // hide header/footer on sign page
+  const hideLayout = location.pathname === "/sign";
   return (
     <>
-      <BrowserRouter>
-        <Hero />
-        <Herosec />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/signup" element={<SignupScreen />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/addCart" element={<AddToCart />} />
-          <Route path="/sign" element={<SignupScreen />} />
-          <Route path="/task" element={<PracticeTask />} />
-          <Route path="/About" element={<About />} />
-          <Route path="/logout" element={<Model />} />
-        </Routes>
-
-        <Footer />
-      </BrowserRouter>
+      {!hideLayout && (
+        <>
+          <Hero />
+          <Herosec setIslogin={setIslogin} />
+        </>
+      )}
+      <Routes>
+        {/* Home route */}
+        <Route
+          path="/"
+          element={isLogin ? <Home /> : <Navigate to="/sign" />}
+        />
+        {/* Signup route */}
+        <Route
+          path="/sign"
+          element={isLogin ? <Navigate to="/" /> : <SignupScreen setIslogin={setIslogin} />}
+        />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/addCart" element={<AddToCart />} />
+        <Route path="/task" element={<PracticeTask />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/logout" element={<Model />} />
+      </Routes>
+      {!hideLayout && <Footer />}
     </>
   );
 }
-
-export default App;
+// Main wrapper
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
+  );
+}
