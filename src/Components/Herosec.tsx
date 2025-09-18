@@ -7,12 +7,13 @@ import "../Styles/Model.css";
 // avatar
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import LogoutModal from "./Model";
 
 interface Props {
   setIslogin: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Herosec = (porps:Props) => {
+const Herosec = (props: Props) => {
   // hhhg
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const Herosec = (porps:Props) => {
     localStorage.removeItem("authToken");
     localStorage.removeItem("isLogin");
     setShow(false);
-    porps.setIslogin(false);
+    props.setIslogin(false);
     navigate("/sign");
   };
 
@@ -120,18 +121,17 @@ const Herosec = (porps:Props) => {
                     <li>
                       {/* Trigger link */}
                       <a
-                        href="#"
                         onClick={(e) => {
-                          e.preventDefault(); 
-                          setShow(true);
+                          e.preventDefault();
+                          setShow(true); // ✅ opens the modal
                         }}
                       >
                         <i className="ri-logout-box-line"></i> Logout
                       </a>
-
+                        <LogoutModal show={show} setShow={setShow} handleLogout={handleLogout}/>
                       {/* Logout Confirmation Modal */}
-                      <Modal show={show} onHide={() => setShow(false)} backdrop="static" 
-                        keyboard={false} 
+                      {/* <Modal show={show} onHide={() => setShow(false)} backdrop="static"
+                        keyboard={false}
                         centered>
                         <Modal.Body>
                           <div className="closeicon" onClick={() => setShow(false)}>
@@ -146,7 +146,7 @@ const Herosec = (porps:Props) => {
                             </Button>
                           </div>
                         </Modal.Body>
-                      </Modal>
+                      </Modal> */}
                     </li>
                   </ul>
                 </div>

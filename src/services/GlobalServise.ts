@@ -1,4 +1,9 @@
-import { Category, Iproducts, userList } from "../@types/ApiResponses";
+import {
+  Category,
+  Iproducts,
+  // productList,
+  userList,
+} from "../@types/ApiResponses";
 import { ApiNames } from "../constants/ApiNames";
 import { apiRequest, getRequest, postRequest } from "./NetworkService";
 
@@ -22,8 +27,8 @@ export const getCategroyService = async () => {
 
 export const getProductService = async () => {
   let endPoint = ApiNames.products;
-  let { data }: { data: Iproducts[] } = await apiRequest(endPoint, "GET");
-  return data;
+  let { data:response }: { data: Iproducts[] } = await apiRequest(endPoint, "GET");
+  return response;
 };
 
 export const getUserService = async () => {

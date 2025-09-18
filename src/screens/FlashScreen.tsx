@@ -21,7 +21,7 @@ const FlashScreen = () => {
         setData(response);
       }
     } catch (error) {
-
+      console.log("Error",error)
     }
   }
   return (

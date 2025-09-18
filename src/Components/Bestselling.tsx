@@ -32,8 +32,8 @@ const Bestselling = (props: Props) => {
             </div>
           </div>
           {props.loading && <p>Loading.....</p>}
-          {props.datas.slice(0, 4).map((item: any) => (
-            <div className="col-lg-3" key={item.id}>
+          {props.datas.slice(0, 4).map((item: any,index:number) => (
+            <div className="col-lg-3" key={item.id+index}>
               <div className="allslidesparent">
                 <div className="backflash">
                   <img src={item.images} />

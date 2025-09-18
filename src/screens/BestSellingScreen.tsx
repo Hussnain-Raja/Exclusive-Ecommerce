@@ -3,9 +3,10 @@ import Bestselling from "../Components/Bestselling";
 import { baseUrl } from "../services/NetworkService";
 import { ApiNames } from "../constants/ApiNames";
 import { getProductService } from "../services/GlobalServise";
+import { Iproducts } from "../@types/ApiResponses";
 
 const BestSellingScreen = () => {
-  const [datas, setDatas] = useState<any[]>([]);
+  const [datas, setDatas] = useState<Iproducts[]>([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {

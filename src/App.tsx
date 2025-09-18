@@ -29,9 +29,10 @@ function AppContent() {
   const navigate = useNavigate();
   const [isLogin, setIslogin] = useState<boolean>(() => {
     // read from localStorage when app loads
-    return localStorage.getItem("login") === "true";
+    return localStorage.getItem("isLogin") === "true";
   });
-
+  console.log('localstorage ::',typeof localStorage.getItem("isLogin"))
+console.log('isLogin::',typeof isLogin)
   useEffect(() => {
     generateToken();
     const loginState = localStorage.getItem("isLogin");
@@ -85,7 +86,6 @@ function AppContent() {
         <Route path="/addCart" element={<AddToCart />} />
         <Route path="/task" element={<PracticeTask />} />
         <Route path="/about" element={<About />} />
-        <Route path="/logout" element={<Model />} />
         <Route path="/contactpage" element={<Contactpage />} />
       </Routes>
       {!hideLayout && <Footer />}

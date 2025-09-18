@@ -22,6 +22,8 @@ interface Props {
     email: string;
     password: string;
   }>
+  textShow: boolean;
+  setTextShow: React.Dispatch<React.SetStateAction<boolean>>
 }
 export const Signup = (props: Props) => {
   return (
@@ -69,11 +71,16 @@ export const Signup = (props: Props) => {
                     />
                     {props.error.password && props.touched.password ? (<p className="form-error" style={{ color: "red", fontSize: 12, marginTop: 10 }}>{props.error.password}</p>) : null}
                   </div>
-                  <form className="buttonform" onSubmit={props.handleSubmit}>
+                  <form className="buttonform" onSubmit={props.handleSubmit} >
                     <button className="redbutton" type="submit">Login</button>
                     <div className="googlebtn">
                       <img src={googlebtnsignup} width={500} />
                     </div>
+                    {props.textShow && (
+                      <div className="text_notification">
+                        <p>Sorry! Email or password is incorrect</p>
+                      </div>
+                    )}
                   </form>
                   <div className="login">
                     <h2 className="verification main-heading">

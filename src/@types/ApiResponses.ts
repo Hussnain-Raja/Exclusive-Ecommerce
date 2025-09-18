@@ -31,3 +31,4 @@ export interface User {
 }
 
 export type userList = User[];
+// export type productList = Iproducts[];

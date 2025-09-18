@@ -3,7 +3,7 @@ import { Signup } from '../Components/Signup';
 import { useFormik } from "formik";
 import { signUpSchema } from '../schemas/Schem';
 import { useNavigate } from 'react-router';
-import { email as validEmail,password as validPassword  } from '../utils/Config';
+import { email as validEmail, password as validPassword } from '../utils/Config';
 const initialValue = {
   email: "",
   password: ""
@@ -12,6 +12,7 @@ interface Props {
   setIslogin: React.Dispatch<React.SetStateAction<boolean>>;
 }
 const SignupScreen = (props: Props) => {
+  const [textShow, setTextShow] = useState(false)
   const navigate = useNavigate();
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
@@ -24,10 +25,9 @@ const SignupScreen = (props: Props) => {
           props.setIslogin(true);
           navigate("/");
         } else {
-          alert("Please enter credentials");
+          setTextShow(true);
         }
-
-        console.log(values);
+        // console.log(values);
       },
     });
   return (
@@ -35,6 +35,8 @@ const SignupScreen = (props: Props) => {
       <Signup values={values} handleChange={handleChange}
         handleBlur={handleBlur} handleSubmit={handleSubmit}
         error={errors} touched={touched}
+        textShow={textShow}
+        setTextShow={setTextShow}
       />
     </>
   )
