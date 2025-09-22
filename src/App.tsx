@@ -23,6 +23,8 @@ import PracticeTask from "./Components/PracticeTask";
 import About from "./Components/About";
 import Model from "./Components/Model";
 import Contactpage from "./Components/Contactpage";
+import ContactpageScreen from "./screens/ContactpageScreen";
+// import Contactpage from "./Components/Contactpage";
 // Layout-aware App
 function AppContent() {
   const location = useLocation();
@@ -31,8 +33,8 @@ function AppContent() {
     // read from localStorage when app loads
     return localStorage.getItem("isLogin") === "true";
   });
-  console.log('localstorage ::',typeof localStorage.getItem("isLogin"))
-console.log('isLogin::',typeof isLogin)
+  console.log('localstorage ::', typeof localStorage.getItem("isLogin"))
+  console.log('isLogin::', typeof isLogin)
   useEffect(() => {
     generateToken();
     const loginState = localStorage.getItem("isLogin");
@@ -86,7 +88,7 @@ console.log('isLogin::',typeof isLogin)
         <Route path="/addCart" element={<AddToCart />} />
         <Route path="/task" element={<PracticeTask />} />
         <Route path="/about" element={<About />} />
-        <Route path="/contactpage" element={<Contactpage />} />
+        <Route path="/contactpage" element={<ContactpageScreen />} />
       </Routes>
       {!hideLayout && <Footer />}
     </>

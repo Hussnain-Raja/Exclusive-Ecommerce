@@ -7,6 +7,7 @@ import Ourproduct from "./Ourproduct";
 import Newarrival from "./Newarrival";
 import BestSellingScreen from "../screens/BestSellingScreen";
 import CoustomerScreen from "../screens/CoustomerScreen";
+import OurproductScreen from "../screens/OurproductScreen";
 
 const Home = () => {
   return (
@@ -16,7 +17,7 @@ const Home = () => {
       <Browse />
       <BestSellingScreen />
       <Experience />
-      <Ourproduct />
+      <OurproductScreen />
       <Newarrival />
       <CoustomerScreen />
     </div>

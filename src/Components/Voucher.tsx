@@ -23,7 +23,7 @@ const Voucher = (props: Props) => {
                 <ul className="voucherleft">
                   {props.loading && <p>Loading...</p>}
                   {props.posts &&
-                    props.posts.map((item: any) => (
+                    props.posts.slice(0, 9).map((item: any) => (
                       <li key={item.id}>
                         <a href="#">{item.name}</a>
                       </li>

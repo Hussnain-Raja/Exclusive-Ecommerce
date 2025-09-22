@@ -1,6 +1,7 @@
 import {
   Category,
   Iproducts,
+  productList,
   // productList,
   userList,
 } from "../@types/ApiResponses";
@@ -27,7 +28,7 @@ export const getCategroyService = async () => {
 
 export const getProductService = async () => {
   let endPoint = ApiNames.products;
-  let { data:response }: { data: Iproducts[] } = await apiRequest(endPoint, "GET");
+  let { data:response }: { data: productList } = await apiRequest(endPoint, "GET");
   return response;
 };
 

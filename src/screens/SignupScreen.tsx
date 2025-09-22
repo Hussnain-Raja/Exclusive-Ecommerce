@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { Signup } from '../Components/Signup';
 import { useFormik } from "formik";
-import { signUpSchema } from '../schemas/Schem';
+import { signUpSchema } from '../schemas/Schema';
 import { useNavigate } from 'react-router';
 import { email as validEmail, password as validPassword } from '../utils/Config';
 const initialValue = {
   email: "",
-  password: ""
+  password: "",
 }
 interface Props {
   setIslogin: React.Dispatch<React.SetStateAction<boolean>>;

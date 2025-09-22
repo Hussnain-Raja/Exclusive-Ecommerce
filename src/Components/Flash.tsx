@@ -23,7 +23,6 @@ const Flash = (props: Props) => {
     minutes: "00",
     seconds: "00",
   });
-  // keep target constant (outside useEffect and NOT in dependency array)
   const target = new Date("2025-09-20T00:00:00").getTime();
 
   useEffect(() => {
@@ -51,7 +50,7 @@ const Flash = (props: Props) => {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []); // 🔑 empty array so effect runs only once
+  }, []); 
   return (
     <section className="flash main-padding">
       <div className="container">

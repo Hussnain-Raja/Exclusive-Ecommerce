@@ -7,7 +7,7 @@ import category4 from "../Assests/category4.webp";
 import category5 from "../Assests/category5.webp";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 const Browse = () => {
   return (
     <section className="browse main-padding">
@@ -38,10 +38,16 @@ const Browse = () => {
 
           <div className="col-lg-12">
             <Swiper
-              modules={[Navigation]}
+              modules={[Navigation, Autoplay]}
               spaceBetween={30}
               slidesPerView={5}
               loop={true}
+              freeMode={true}               
+              autoplay={{
+                delay: 0,                   
+                disableOnInteraction: false,
+              }}
+              speed={1000}
               navigation={{
                 nextEl: ".categorycustom-next",
                 prevEl: ".categorycustom-prev ",
