@@ -28,12 +28,14 @@ const Cart = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
   const [count, setCount] = useState(0);
   const [activeDiv, setActiveDiv] = useState(null);
+  const [linkActive, setLinkActive] = useState("");
 
 
-    // Handle click for active
-    const onHandleClick = (e:any) =>{
-      setActiveDiv(e.currentTarget);
-    }
+  // Handle click for active
+  const onHandleClick = (e: any) => {
+    setActiveDiv(e.currentTarget);
+  }
+
 
   const handleColorChange = (e: React.MouseEvent<HTMLElement>) => {
     e.currentTarget.classList.toggle("icon-active");
@@ -139,14 +141,18 @@ const Cart = () => {
                   </div>
                 </div>
                 <div className="sizeparent">
-                  <p className="colorhead">Size:</p> 
-
-                  <div className="sizeno" >XS </div>
-                  <div className="sizeno">S </div>
-                  <div className="sizeno active">M </div>
-                  <div className="sizeno">L </div>
-                  <div className="sizeno">XL </div>
-                </div>  
+                  <p className="colorhead">Size:</p>
+                  <div className={`sizeno ${linkActive === "XS" ? "active" : ""}`}
+                    onClick={() => setLinkActive("XS")} >XS </div>
+                  <div className={`sizeno ${linkActive === "S" ? "active" : ""}`}
+                    onClick={() => setLinkActive("S")}>S </div>
+                  <div className={`sizeno ${linkActive === "M" ? "active" : ""}`}
+                    onClick={() => setLinkActive("M")}> M </div>
+                  <div className={`sizeno ${linkActive === "L" ? "active" : ""}`}
+                    onClick={() => setLinkActive("L")} >L </div>
+                  <div className={`sizeno ${linkActive === "XL" ? "active" : ""}`}
+                    onClick={() => setLinkActive("XL")}>XL </div>
+                </div>
                 <div className="countsec">
                   <div className="counter">
                     <div className="button-block">

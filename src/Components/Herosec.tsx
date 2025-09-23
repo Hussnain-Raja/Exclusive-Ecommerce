@@ -60,7 +60,7 @@ const Herosec = (props: Props) => {
         <div className="row">
           <div className="col-lg-3">
             <div className="secondsechead">
-              <h2 className="heroexclusive">Exclusive</h2>
+              <a href="#" className="heroexclusive">Exclusive</a>
             </div>
           </div>
           <div className="col-lg-3">

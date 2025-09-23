@@ -18,10 +18,16 @@ const ContactpageScreen = () => {
             initialValues: initialValue,
             validationSchema: signUpSchema,
             onSubmit: (values) => {
-                localStorage.setItem("name", values.name);
-                localStorage.setItem("email", values.email);
-                localStorage.setItem("subject", values.subject);
-                localStorage.setItem("message", values.message);
+                localStorage.setItem("name",values.name);
+                localStorage.setItem("email",values.email);
+                localStorage.setItem("subject",values.subject);
+                localStorage.setItem("message",values.message);
+                // if (values.name && values.message && values.subject) {
+
+                // } else {
+
+                // }
+                // // console.log(values);
             },
         });
 
