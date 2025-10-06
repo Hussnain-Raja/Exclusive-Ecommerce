@@ -23,7 +23,8 @@ const Flash = (props: Props) => {
     minutes: "00",
     seconds: "00",
   });
-  const target = new Date("2025-09-20T00:00:00").getTime();
+
+  const target = new Date("2025-12-31T23:59:59").getTime();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -32,12 +33,7 @@ const Flash = (props: Props) => {
 
       if (difference <= 0) {
         clearInterval(interval);
-        setTimeLeft({
-          days: "00",
-          hours: "00",
-          minutes: "00",
-          seconds: "00",
-        });
+        setTimeLeft({ days: "00", hours: "00", minutes: "00", seconds: "00" });
         return;
       }
 
@@ -50,7 +46,8 @@ const Flash = (props: Props) => {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []); 
+  }, [target]); // add target as dependency
+
   return (
     <section className="flash main-padding">
       <div className="container">

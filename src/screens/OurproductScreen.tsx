@@ -2,20 +2,12 @@ import React, { useEffect, useState } from 'react'
 import Ourproduct from '../Components/Ourproduct'
 import { getProductService } from '../services/GlobalServise';
 
-
-const item_per_page = 10;
-
 const OurproductScreen = () => {
-
     const [expProd, setExploreProd] = useState<any>([]);
-    const [itemsToShow, setItemsToShow] = useState(item_per_page);
 
     useEffect(() => {
         getExploreProd();
     }, [])
-    const handleLoadMore = () => {
-        setItemsToShow(prevItemsToShow => prevItemsToShow + item_per_page);
-    };
 
     const getExploreProd = async () => {
         try {
@@ -29,9 +21,7 @@ const OurproductScreen = () => {
     }
     return (
         <>
-            <Ourproduct expProd={expProd} setExploreProd={setExploreProd}
-            handleLoadMore={handleLoadMore} itemsToShow={itemsToShow} setItemsToShow={setItemsToShow}
-            /> 
+            <Ourproduct expProd={expProd} setExploreProd={setExploreProd} />
         </>
     )
 }

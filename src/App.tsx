@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import {
-  BrowserRouter,
   Routes,
   Route,
   useLocation,
@@ -19,29 +18,18 @@ import { email, password } from "./utils/Config";
 import { generateTokenService } from "./services/GlobalServise";
 import AddToCart from "./Components/AddToCart";
 import SignupScreen from "./screens/SignupScreen";
-import PracticeTask from "./Components/PracticeTask";
 import About from "./Components/About";
-import Model from "./Components/Model";
-import Contactpage from "./Components/Contactpage";
 import ContactpageScreen from "./screens/ContactpageScreen";
-// import Contactpage from "./Components/Contactpage";
-// Layout-aware App
-function AppContent() {
+import TodoAppScreen from "./screens/TodoAppScreen";
+
+
+function App() {
   const location = useLocation();
   const navigate = useNavigate();
-  const [isLogin, setIslogin] = useState<boolean>(() => {
-    // read from localStorage when app loads
-    return localStorage.getItem("isLogin") === "true";
-  });
-  console.log('localstorage ::', typeof localStorage.getItem("isLogin"))
-  console.log('isLogin::', typeof isLogin)
+  const [isLogin, setIslogin] = useState(false);
   useEffect(() => {
     generateToken();
-    const loginState = localStorage.getItem("isLogin");
-    // console.log("Login State:: ", loginState);
-    // if (loginState === "true") {
-    //   setIslogin(true);
-    // }
+    // const loginState = localStorage.getItem("isLogin");
   }, []);
   const generateToken = async () => {
     try {
@@ -57,7 +45,6 @@ function AppContent() {
       console.warn("Generate Token Error", error);
     }
   };
-  // hide header/footer on sign page
   const hideLayout = location.pathname === "/sign";
   return (
     <>
@@ -68,12 +55,10 @@ function AppContent() {
         </>
       )}
       <Routes>
-        {/* Home route */}
         <Route
           path="/"
           element={isLogin ? <Home /> : <Navigate to="/sign" />}
         />
-        {/* Signup route */}
         <Route
           path="/sign"
           element={
@@ -86,19 +71,13 @@ function AppContent() {
         />
         <Route path="/cart" element={<Cart />} />
         <Route path="/addCart" element={<AddToCart />} />
-        <Route path="/task" element={<PracticeTask />} />
         <Route path="/about" element={<About />} />
         <Route path="/contactpage" element={<ContactpageScreen />} />
+        <Route path="/todo" element={<TodoAppScreen />} />
       </Routes>
       {!hideLayout && <Footer />}
     </>
   );
 }
-// Main wrapper
-export default function App() {
-  return (
-    <BrowserRouter>
-      <AppContent />
-    </BrowserRouter>
-  );
-}
+export default App;
+

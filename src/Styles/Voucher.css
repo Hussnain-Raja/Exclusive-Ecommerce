@@ -32,7 +32,10 @@
 .voucherimage {
   position: relative;
   z-index: 9;
+  height: 400px;
+  width: 100%;
 }
+
 .textonimage {
   position: absolute;
   top: 69px;

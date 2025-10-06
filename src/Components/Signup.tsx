@@ -43,39 +43,53 @@ export const Signup = (props: Props) => {
                     Create an account
                   </h2>
                   <h2 className="signuppara">Enter your details below</h2>
-                  <div className="inputform">
-                    <input
-                      type="email"
-                      id="email"
-                      autoComplete="off"
-                      className="email-input"
-                      placeholder="Enter your email"
-                      name="email"
-                      value={props.values.email}
-                      onChange={props.handleChange}
-                      onBlur={props.handleBlur}
-                    />
-                    {props.error.email && props.touched.email ? (<p className="form-error" style={{ color: "red", fontSize: 12, marginTop: 10 }}>{props.error.email}</p>) : null}
-                  </div>
-                  <div className="inputform">
-                    <input
-                      type="password"
-                      autoComplete="off"
-                      name="password"
-                      className="email-input"
-                      id="password"
-                      placeholder="Enter your password"
-                      value={props.values.password}
-                      onChange={props.handleChange}
-                      onBlur={props.handleBlur}
-                    />
-                    {props.error.password && props.touched.password ? (<p className="form-error" style={{ color: "red", fontSize: 12, marginTop: 10 }}>{props.error.password}</p>) : null}
-                  </div>
-                  <form className="buttonform" onSubmit={props.handleSubmit} >
-                    <button className="redbutton" type="submit">Login</button>
+                  <form className="buttonform" onSubmit={props.handleSubmit}>
+                    <div className="inputform">
+                      <input
+                        type="email"
+                        id="email"
+                        autoComplete="off"
+                        className="email-input"
+                        placeholder="Enter your email"
+                        name="email"
+                        value={props.values.email}
+                        onChange={props.handleChange}
+                        onBlur={props.handleBlur}
+                      />
+                      {props.error.email && props.touched.email && (
+                        <p className="form-error" style={{ color: "red", fontSize: 12, marginTop: 10 }}>
+                          {props.error.email}
+                        </p>
+                      )}
+                    </div>
+
+                    <div className="inputform">
+                      <input
+                        type="password"
+                        autoComplete="off"
+                        name="password"
+                        className="email-input"
+                        id="password"
+                        placeholder="Enter your password"
+                        value={props.values.password}
+                        onChange={props.handleChange}
+                        onBlur={props.handleBlur}
+                      />
+                      {props.error.password && props.touched.password && (
+                        <p className="form-error" style={{ color: "red", fontSize: 12, marginTop: 10 }}>
+                          {props.error.password}
+                        </p>
+                      )}
+                    </div>
+
+                    <button className="redbutton" type="submit">
+                      Login
+                    </button>
+
                     <div className="googlebtn">
                       <img src={googlebtnsignup} width={500} />
                     </div>
+
                     {props.textShow && (
                       <div className="text_notification">
                         <p>Sorry! Email or password is incorrect</p>

@@ -1,3 +1,2 @@
-
-export const email = "aaa@gmail.com";
+export const email = "john@mail.com";
 export const password = "changeme";

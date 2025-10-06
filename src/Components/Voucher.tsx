@@ -5,7 +5,12 @@ import "swiper/css";
 import voucherright from "../Assests/voucherright.webp";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
+import cousalImg1 from "../Assests/crousal1.webp";
+import cousalImg2 from "../Assests/crousal2.webp";
+import cousalImg3 from "../Assests/crousal3.webp";
+import cousalImg4 from "../Assests/crousal4.webp";
+
 
 type Props = {
   posts: any[] | undefined;
@@ -35,17 +40,19 @@ const Voucher = (props: Props) => {
             <div className="col-lg-10">
               <div className="voucherrightmargin">
                 <Swiper
+                  modules={[Autoplay]}
                   spaceBetween={10}
                   slidesPerView={1}
                   loop={true}
-                  pagination={{
-                    clickable: true,
+                  freeMode={true}
+                  autoplay={{
+                    delay: 0,
+                    disableOnInteraction: false,
                   }}
-                  modules={[Pagination]}
+                  speed={2500}
                   className="mySwiper"
                 >
                   {/* 1st slide */}
-
                   <SwiperSlide>
                     <div className="voucherimage">
                       <img src={voucherright} />
@@ -65,7 +72,7 @@ const Voucher = (props: Props) => {
                   </SwiperSlide>
                   <SwiperSlide>
                     <div className="voucherimage">
-                      <img src={voucherright} />
+                      <img src={cousalImg1} />
                       <div className="textonimage">
                         <div className="aligntextapple">
                           <img src={appleimage} width={43} />
@@ -82,7 +89,7 @@ const Voucher = (props: Props) => {
                   </SwiperSlide>
                   <SwiperSlide>
                     <div className="voucherimage">
-                      <img src={voucherright} />
+                      <img src={cousalImg2} />
                       <div className="textonimage">
                         <div className="aligntextapple">
                           <img src={appleimage} width={43} />
@@ -99,7 +106,7 @@ const Voucher = (props: Props) => {
                   </SwiperSlide>
                   <SwiperSlide>
                     <div className="voucherimage">
-                      <img src={voucherright} />
+                      <img src={cousalImg3} />
                       <div className="textonimage">
                         <div className="aligntextapple">
                           <img src={appleimage} width={43} />
@@ -116,7 +123,7 @@ const Voucher = (props: Props) => {
                   </SwiperSlide>
                   <SwiperSlide>
                     <div className="voucherimage">
-                      <img src={voucherright} />
+                      <img src={cousalImg4} />
                       <div className="textonimage">
                         <div className="aligntextapple">
                           <img src={appleimage} width={57} />

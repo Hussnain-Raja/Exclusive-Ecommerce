@@ -1,15 +1,12 @@
 import React from "react";
 import "../Styles/Bestselling.css";
-// import best1 from "../Assests/best1.webp";
-// import best2 from "../Assests/best2.webp";
-// import best3 from "../Assests/best3.webp";
-// import best4 from "../Assests/best4.webp";
-
+import useLoadMore from "../hooks/Loadmore";
 interface Props {
   datas: any[];
   loading: boolean;
 }
 const Bestselling = (props: Props) => {
+  const { itemsToShow, handleLoadMore } = useLoadMore();
   return (
     <section className="bestselling main-padding">
       <div className="container">
@@ -27,13 +24,15 @@ const Bestselling = (props: Props) => {
               </h2>
 
               <div className="bestbutton">
-                <button className="redbutton">View All </button>
+                {itemsToShow < props.datas.length && (
+                  <button className="redbutton" onClick={handleLoadMore}>View All </button>
+                )}
               </div>
             </div>
           </div>
           {props.loading && <p>Loading.....</p>}
-          {props.datas.slice(0, 4).map((item: any,index:number) => (
-            <div className="col-lg-3" key={item.id+index}>
+          {props.datas.slice(0, itemsToShow).map((item: any, index: number) => (
+            <div className="col-lg-3" key={item.id + index}>
               <div className="allslidesparent">
                 <div className="backflash">
                   <img src={item.images} />

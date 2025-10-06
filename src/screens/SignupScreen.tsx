@@ -19,6 +19,7 @@ const SignupScreen = (props: Props) => {
       initialValues: initialValue,
       validationSchema: signUpSchema,
       onSubmit: (values) => {
+        console.log("submit form")
         if (values.email === validEmail && values.password === validPassword) {
           localStorage.setItem("authToken", "dummy-token");
           const loginState = localStorage.setItem("isLogin", "true");
@@ -27,9 +28,10 @@ const SignupScreen = (props: Props) => {
         } else {
           setTextShow(true);
         }
-        // console.log(values);
+        console.log(values);
       },
     });
+
   return (
     <>
       <Signup values={values} handleChange={handleChange}

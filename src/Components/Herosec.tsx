@@ -52,15 +52,13 @@ const Herosec = (props: Props) => {
       dropdown.classList.toggle("show-dropdown");
     }
   };
-
-  // ccc
   return (
     <section className="herosec">
       <div className="container">
         <div className="row">
           <div className="col-lg-3">
             <div className="secondsechead">
-              <a href="#" className="heroexclusive">Exclusive</a>
+              <h2 className="heroexclusive">Exclusive</h2>
             </div>
           </div>
           <div className="col-lg-3">
@@ -82,15 +80,12 @@ const Herosec = (props: Props) => {
                 <input placeholder="What are you looking for?"></input>
                 <i className="ri-search-line search-icon"></i>
               </div>
-
               <div className="iconsatlast">
                 <i className="ri-heart-line"></i>
                 <Link to="/">
                   <i className="ri-shopping-cart-2-line"></i>
                 </Link>
               </div>
-
-              {/* Avatar and Dropdown */}
               <div className="usercircle-wrapper">
                 <div className="usercircle" onClick={toggleDropdown}>
                   <i className="ri-user-line"></i>
@@ -119,34 +114,16 @@ const Herosec = (props: Props) => {
                       </a>
                     </li>
                     <li>
-                      {/* Trigger link */}
                       <a
                         onClick={(e) => {
                           e.preventDefault();
-                          setShow(true); // ✅ opens the modal
+                          setShow(true);
                         }}
                       >
                         <i className="ri-logout-box-line"></i> Logout
+                        
                       </a>
-                        <LogoutModal show={show} setShow={setShow} handleLogout={handleLogout}/>
-                      {/* Logout Confirmation Modal */}
-                      {/* <Modal show={show} onHide={() => setShow(false)} backdrop="static"
-                        keyboard={false}
-                        centered>
-                        <Modal.Body>
-                          <div className="closeicon" onClick={() => setShow(false)}>
-                            <i className="ri-close-circle-line"></i>
-                          </div>
-                          <div className="logout-txt">
-                            Are you sure you want to log out of your account?
-                          </div>
-                          <div className="logout-btn">
-                            <Button variant="danger" onClick={handleLogout}>
-                              Logout
-                            </Button>
-                          </div>
-                        </Modal.Body>
-                      </Modal> */}
+                      <LogoutModal show={show} setShow={setShow} handleLogout={handleLogout} />
                     </li>
                   </ul>
                 </div>

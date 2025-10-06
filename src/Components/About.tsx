@@ -30,22 +30,6 @@ const About = () => {
     return (
         <>
             {/* <!-- Mission Section --> */}
-            {/* <section className="mission container">
-                <div className="mission-text">
-                    <h3>Our Mission</h3>
-                    <p>  At Exclusive, we believe shopping should be simple, secure, and
-                        enjoyable. Our mission is to bring you the latest in electronics,
-                        fashion, and lifestyle products at unbeatable prices, all from the
-                        comfort of your home. With a wide selection of trusted brands, fast
-                        delivery, and dedicated customer support, we aim to create a shopping
-                        experience that combines convenience with quality. Whether you’re
-                        upgrading your tech, refreshing your wardrobe, or finding the perfect
-                        gift, Exclusive is here to make every purchase easy and reliable.</p>
-                </div>
-                <div className="mission-img">
-                    <img src={aboutImage} alt="About-right-img" />
-                </div>
-            </section> */}
             <section className="mission container">
                 <div className="row">
                     {/* Text Column (8) */}
